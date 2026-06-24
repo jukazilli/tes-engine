@@ -1,0 +1,35 @@
+.home {
+  display: grid;
+  gap: 1rem;
+  max-width: 48rem;
+}
+
+.home h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.versions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 1rem;
+  margin: 0;
+}
+
+.versions div {
+  border: 1px solid #dadedf;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.versions dt {
+  color: #4a5c60;
+  font-size: 0.875rem;
+}
+
+.versions dd {
+  margin: 0.25rem 0 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+}

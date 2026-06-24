@@ -1,96 +1,96 @@
-# TesEngine
+# TES Engine
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+TES Engine e um SaaS B2B para analise de XMLs de NF-e, consolidacao de cenarios de TES e geracao futura de arquivos para importacao no TOTVS Protheus por meio do MILE.
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+Este repositorio contem somente a baseline tecnica do Prompt 01. Banco de dados, Redis, armazenamento de objetos, upload, parser XML, regras fiscais, autenticacao, wizard e exportacoes ficam para cortes posteriores.
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/intro#learn-nx?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+## Pre-requisitos
 
-## Run tasks
+- Node.js 22.12.0
+- Corepack 0.29.4
+- pnpm 9.11.0
+- Git 2.41.0 ou superior
 
-To run tasks with Nx use:
+## Versoes principais
 
-```sh
-npx nx <target> <project-name>
+- Nx 23.0.1
+- Angular 21.2.17
+- PO UI 21.21.0
+- NestJS 11.1.27
+- TypeScript 5.9.3
+- RxJS 7.8.2
+- Zone.js 0.15.1
+
+## Instalacao
+
+```powershell
+corepack enable
+pnpm install
 ```
 
-For example:
+## Desenvolvimento
 
-```sh
-npx nx build myproject
+```powershell
+pnpm dev:web
+pnpm dev:api
+pnpm dev:worker
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+Servicos locais:
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- Web: `http://localhost:4200`
+- API: `http://localhost:3000/api`
+- Health check: `http://localhost:3000/api/health`
 
-## Add new projects
+## Qualidade
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-To install a new plugin you can use the `nx add` command. Here's an example of adding the React plugin:
-```sh
-npx nx add @nx/react
+```powershell
+pnpm lint
+pnpm test
+pnpm build
+pnpm build:web
+pnpm build:api
+pnpm build:worker
+pnpm affected:lint
+pnpm affected:test
+pnpm graph
 ```
 
-Use the plugin's generator to create new projects. For example, to create a new React app or library:
+## Estrutura inicial
 
-```sh
-# Generate an app
-npx nx g @nx/react:app demo
-
-# Generate a library
-npx nx g @nx/react:lib some-lib
+```text
+apps/
+  web/
+  api/
+  worker/
+libs/
+  frontend/
+    shell/
+    ui/
+  backend/
+    common/
+  shared/
+    contracts/
+    domain-types/
+    testing/
+  engines/
+    core/
+docs/
+  architecture/
+  adr/
+  execution/
+infrastructure/
+tools/
 ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+## Regras de separacao
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- A logica fiscal e de consolidacao de TES nao deve ser implementada no frontend.
+- O frontend pode consumir contratos compartilhados, mas nao pode importar backend.
+- O backend pode usar libs compartilhadas e engines.
+- Engines devem permanecer independentes de Angular, NestJS e PO UI.
+- Shared deve conter contratos e tipos reutilizaveis, sem dependencia de camadas superiores.
 
-## Set up CI!
+## Proximo passo
 
-### Step 1
-
-To connect to Nx Cloud, run the following command:
-
-```sh
-npx nx connect
-```
-
-Connecting to Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
-
-- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-### Step 2
-
-Use the following command to configure a CI workflow for your workspace:
-
-```sh
-npx nx g ci-workflow
-```
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/getting-started/intro#learn-nx?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+O Prompt 02 deve configurar PostgreSQL, Redis, MinIO e Mailpit localmente. Nada disso esta instalado ou configurado neste corte.

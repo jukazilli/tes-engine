@@ -1,0 +1,29 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "paths": {
+      "@tes-engine/frontend-shell": ["./libs/frontend/shell/src/index.ts"],
+      "@tes-engine/frontend-ui": ["./libs/frontend/ui/src/index.ts"],
+      "@tes-engine/backend-common": ["./libs/backend/common/src/index.ts"],
+      "@tes-engine/shared-contracts": ["./libs/shared/contracts/src/index.ts"],
+      "@tes-engine/shared-domain-types": [
+        "./libs/shared/domain-types/src/index.ts"
+      ],
+      "@tes-engine/shared-testing": ["./libs/shared/testing/src/index.ts"],
+      "@tes-engine/engine-core": ["./libs/engines/core/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

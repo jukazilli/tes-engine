@@ -1,0 +1,21 @@
+<po-toolbar [p-title]="title"></po-toolbar>
+
+<po-menu [p-menus]="menuItems" [p-filter]="false"></po-menu>
+
+<po-page-default [p-title]="title">
+  <section class="home">
+    <h2>Ambiente inicial configurado</h2>
+    <dl class="versions">
+      <div>
+        <dt>Angular</dt>
+        <dd>{{ angularVersion }}</dd>
+      </div>
+      <div>
+        <dt>PO UI</dt>
+        <dd>{{ poUiVersion }}</dd>
+      </div>
+    </dl>
+  </section>
+
+  <router-outlet></router-outlet>
+</po-page-default>
