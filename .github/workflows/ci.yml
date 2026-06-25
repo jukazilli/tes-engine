@@ -52,6 +52,12 @@ jobs:
       - name: Validate architecture boundaries
         run: pnpm architecture:boundaries
 
+      - name: Validate typecheck coverage
+        run: pnpm typecheck:coverage
+
+      - name: Typecheck
+        run: pnpm typecheck
+
       - name: Lint
         run: pnpm lint
 

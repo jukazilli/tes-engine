@@ -70,6 +70,14 @@
         "tsConfig": "apps/web/tsconfig.spec.json"
       }
     },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "outputs": [],
+      "options": {
+        "command": "ngc -p apps/web/tsconfig.app.json --noEmit"
+      }
+    },
     "serve-static": {
       "continuous": true,
       "executor": "@nx/web:file-server",

@@ -21,6 +21,14 @@
       "options": {
         "jestConfig": "libs/shared/domain-types/jest.config.cts"
       }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "outputs": [],
+      "options": {
+        "command": "tsc --noEmit -p libs/shared/domain-types/tsconfig.lib.json"
+      }
     }
   }
 }

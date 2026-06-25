@@ -54,10 +54,14 @@ pnpm format:check
 pnpm docs:validate
 pnpm architecture:validate
 pnpm architecture:boundaries
+pnpm typecheck:coverage
+pnpm typecheck
 pnpm lint
 pnpm test
 pnpm build
+pnpm quality:fast
 pnpm quality
+pnpm run ci
 pnpm ci:validate
 pnpm build:web
 pnpm build:api
@@ -67,8 +71,9 @@ pnpm affected:test
 pnpm graph
 ```
 
-`pnpm quality` executa formatacao, validacoes arquiteturais, lint, testes e build em sequencia. O CI
-usa a mesma base sem exigir Docker ou servicos locais.
+`pnpm quality:fast` executa formatacao, documentacao, arquitetura, cobertura de typecheck, typecheck
+e lint. `pnpm quality` acrescenta testes e build. `pnpm run ci` executa o mesmo gate local. O CI usa
+a mesma base sem exigir Docker ou servicos locais.
 
 Ordem recomendada de leitura:
 
@@ -77,6 +82,7 @@ Ordem recomendada de leitura:
 3. [`docs/architecture/system-overview.md`](docs/architecture/system-overview.md)
 4. [`docs/architecture/module-catalog.md`](docs/architecture/module-catalog.md)
 5. [`docs/domain/ubiquitous-language.md`](docs/domain/ubiquitous-language.md)
+6. [`docs/development/typechecking.md`](docs/development/typechecking.md)
 
 ## Estrutura inicial
 
@@ -127,5 +133,5 @@ A governanca documental esta definida em
 
 ## Proximo passo
 
-O Prompt 05 estabelece a governanca documental. O Prompt 06 deve continuar a evolucao incremental
-sem antecipar ORM, migrations, autenticacao ou funcionalidades fiscais fora do escopo definido.
+O Prompt 05.1 corrige o gate de typecheck. O Prompt 06 deve ser reexecutado sem antecipar ORM,
+migrations, autenticacao ou funcionalidades fiscais fora do escopo definido.

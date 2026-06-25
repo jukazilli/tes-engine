@@ -12,6 +12,8 @@ const requiredCommands = [
   'pnpm docs:validate',
   'pnpm architecture:validate',
   'pnpm architecture:boundaries',
+  'pnpm typecheck:coverage',
+  'pnpm typecheck',
   'pnpm lint',
   'pnpm test',
   'pnpm build',

@@ -59,14 +59,18 @@ Run the full local gate before opening a PR:
 
 ```powershell
 pnpm quality
+pnpm run ci
 ```
 
 The CI gate runs:
 
 ```powershell
 pnpm format:check
+pnpm docs:validate
 pnpm architecture:validate
 pnpm architecture:boundaries
+pnpm typecheck:coverage
+pnpm typecheck
 pnpm lint
 pnpm test
 pnpm build

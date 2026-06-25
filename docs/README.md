@@ -7,16 +7,17 @@ produto, dominio, governanca, execucao dos prompts e contribuicoes.
 
 ## Mapa das pastas
 
-| Pasta           | Conteudo                                                 | Fonte canonica |
-| --------------- | -------------------------------------------------------- | -------------- |
-| `product/`      | Visao, escopo MVP e jornada de usuario                   | Produto        |
-| `architecture/` | Arquitetura, modulos, infraestrutura, qualidade e testes | Arquitetura    |
-| `domain/`       | Linguagem ubiqua, regras e decisoes pendentes            | Dominio        |
-| `governance/`   | Fonte de verdade, padroes e mudancas                     | Governanca     |
-| `adr/`          | Architectural Decision Records aceitos                   | Decisoes       |
-| `templates/`    | Modelos para novos documentos                            | Processo       |
-| `roadmap/`      | Fases e sequencia de prompts                             | Planejamento   |
-| `execution/`    | Relatorios historicos de execucao                        | Evidencia      |
+| Pasta           | Conteudo                                                 | Fonte canonica  |
+| --------------- | -------------------------------------------------------- | --------------- |
+| `product/`      | Visao, escopo MVP e jornada de usuario                   | Produto         |
+| `architecture/` | Arquitetura, modulos, infraestrutura, qualidade e testes | Arquitetura     |
+| `domain/`       | Linguagem ubiqua, regras e decisoes pendentes            | Dominio         |
+| `development/`  | Guias de desenvolvimento, qualidade e comandos locais    | Desenvolvimento |
+| `governance/`   | Fonte de verdade, padroes e mudancas                     | Governanca      |
+| `adr/`          | Architectural Decision Records aceitos                   | Decisoes        |
+| `templates/`    | Modelos para novos documentos                            | Processo        |
+| `roadmap/`      | Fases e sequencia de prompts                             | Planejamento    |
+| `execution/`    | Relatorios historicos de execucao                        | Evidencia       |
 
 ## Ordem recomendada de leitura
 
@@ -29,13 +30,14 @@ produto, dominio, governanca, execucao dos prompts e contribuicoes.
 7. [Linguagem ubiqua](domain/ubiquitous-language.md)
 8. [Registro de regras de negocio](domain/business-rules-register.md)
 9. [Indice de ADRs](adr/README.md)
-10. [Relatorios de execucao](execution/README.md)
+10. [Typechecking](development/typechecking.md)
+11. [Relatorios de execucao](execution/README.md)
 
 ## Status atual
 
-Ultima etapa concluida: Prompt 04, quality gates, hooks Git e CI.
+Ultima etapa concluida: Prompt 05.1, correcao do gate de typecheck.
 
-Etapa atual: Prompt 05, governanca documental.
+Etapa atual: baseline pronta para reexecutar o Prompt 06.
 
 Proxima etapa prevista: Prompt 06, a ser definido pela sequencia de prompts sem antecipar ORM,
 autenticacao, banco da aplicacao ou funcionalidades fiscais.

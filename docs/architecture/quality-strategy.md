@@ -24,6 +24,14 @@ Generated output, caches, binary screenshots and local environment files are ign
 ESLint owns quality and architecture concerns. It preserves Nx module boundaries and platform
 restrictions. Prettier owns style, so ESLint should not grow excessive stylistic rules.
 
+## Typecheck
+
+Typecheck is an explicit gate independent from build. `pnpm typecheck:coverage` ensures every
+TypeScript project has a `typecheck` target, and `pnpm typecheck` runs those targets through Nx.
+
+The Angular app uses `ngc --noEmit` so templates remain covered by `strictTemplates`. NestJS apps
+and libraries use `tsc --noEmit` with their app or library tsconfig.
+
 ## Boundaries
 
 Architecture validation has two layers:
@@ -41,7 +49,7 @@ validate.
 
 ## Builds
 
-Builds verify that web, API, worker and libraries compile with the current Nx setup.
+Builds verify that web, API, worker and libraries compile and package with the current Nx setup.
 
 ## CI
 
@@ -50,6 +58,8 @@ GitHub Actions runs the main quality gate on pull requests and pushes to `main`,
 while supporting future `main` or `develop` usage.
 
 The CI job does not require Docker, database, Redis, MinIO, Mailpit, secrets or deploy credentials.
+It runs formatting, documentation validation, architecture validation, typecheck coverage,
+typecheck, lint, tests and build.
 
 ## Hooks
 

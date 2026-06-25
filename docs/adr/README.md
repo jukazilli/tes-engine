@@ -18,10 +18,11 @@ Nao renumerar ADRs aceitos. Lacunas devem ser registradas, nao preenchidas artif
 | 010    | Framework independent engines                       | ACCEPTED | Nao informado | Engines sem Angular, PO UI ou NestJS.     | Nenhum   | [ADR-010](ADR-010-framework-independent-engines.md) |
 | 011    | Quality gates, Git hooks and continuous integration | ACCEPTED | Nao informado | Quality gates, hooks e CI.                | Nenhum   | [ADR-011](ADR-011-quality-gates-and-ci.md)          |
 | 012    | Documentation governance and sources of truth       | ACCEPTED | 2026-06-25    | Governanca documental e fonte de verdade. | Nenhum   | [ADR-012](ADR-012-documentation-governance.md)      |
+| 013    | Explicit typechecking                               | ACCEPTED | 2026-06-25    | Typecheck explicito para projetos Nx.     | Nenhum   | [ADR-013](ADR-013-explicit-typechecking.md)         |
 
 ## Lacunas e duplicidades
 
-- Lacunas: nenhuma entre 001 e 012.
+- Lacunas: nenhuma entre 001 e 013.
 - Duplicidades: nenhuma conhecida.
 - Arquivos sem numero: este README nao e ADR.
 

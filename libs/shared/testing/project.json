@@ -21,6 +21,14 @@
       "options": {
         "jestConfig": "libs/shared/testing/jest.config.cts"
       }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "outputs": [],
+      "options": {
+        "command": "tsc --noEmit -p libs/shared/testing/tsconfig.lib.json"
+      }
     }
   }
 }

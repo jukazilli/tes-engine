@@ -16,13 +16,15 @@ Status: ACCEPTED
 
 ## Indice
 
-| Prompt | Relatorio                                                   | Status    |
-| ------ | ----------------------------------------------------------- | --------- |
-| 001    | [Workspace bootstrap](001-workspace-bootstrap.md)           | Concluido |
-| 002    | [Local infrastructure](002-local-infrastructure.md)         | Concluido |
-| 003    | [Module boundaries](003-module-boundaries.md)               | Concluido |
-| 004    | [Quality gates and CI](004-quality-gates-and-ci.md)         | Concluido |
-| 005    | [Documentation governance](005-documentation-governance.md) | Concluido |
+| Prompt | Relatorio                                                              | Status    |
+| ------ | ---------------------------------------------------------------------- | --------- |
+| 001    | [Workspace bootstrap](001-workspace-bootstrap.md)                      | Concluido |
+| 002    | [Local infrastructure](002-local-infrastructure.md)                    | Concluido |
+| 003    | [Module boundaries](003-module-boundaries.md)                          | Concluido |
+| 004    | [Quality gates and CI](004-quality-gates-and-ci.md)                    | Concluido |
+| 005    | [Documentation governance](005-documentation-governance.md)            | Concluido |
+| 005a   | [Typecheck quality gate](005a-typecheck-quality-gate.md)               | Concluido |
+| 006    | [API foundation, tentativa 1](006-attempt-1-api-foundation-blocked.md) | Bloqueado |
 
 Artefatos relacionados:
 

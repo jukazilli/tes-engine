@@ -72,6 +72,14 @@
         "jestConfig": "apps/api/jest.config.cts",
         "passWithNoTests": true
       }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "outputs": [],
+      "options": {
+        "command": "tsc --noEmit -p apps/api/tsconfig.app.json"
+      }
     }
   }
 }
