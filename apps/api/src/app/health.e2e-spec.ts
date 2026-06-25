@@ -21,12 +21,9 @@ describe('GET /api/health', () => {
   });
 
   it('returns the API health payload', async () => {
-    await request(app.getHttpServer())
-      .get('/api/health')
-      .expect(200)
-      .expect({
-        status: 'ok',
-        service: 'tes-engine-api',
-      });
+    await request(app.getHttpServer()).get('/api/health').expect(200).expect({
+      status: 'ok',
+      service: 'tes-engine-api',
+    });
   });
 });

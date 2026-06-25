@@ -6,7 +6,8 @@ Data: 2026-06-25
 
 Concluido.
 
-O monorepo passou a ter tags Nx completas, aliases publicos, APIs publicas explicitas nas bibliotecas, regras ESLint/Nx de fronteira e validadores automatizados de arquitetura.
+O monorepo passou a ter tags Nx completas, aliases publicos, APIs publicas explicitas nas
+bibliotecas, regras ESLint/Nx de fronteira e validadores automatizados de arquitetura.
 
 ## 2. Estado inicial encontrado
 
@@ -33,7 +34,8 @@ Resultado do preflight: infraestrutura saudavel, lint passou, testes passaram e 
 
 ## 3. Correcao do screenshot excluido
 
-O arquivo `docs/execution/tes-engine-prompt-001-web.png` estava rastreado desde o commit `60674b8 chore: bootstrap tes engine workspace`.
+O arquivo `docs/execution/tes-engine-prompt-001-web.png` estava rastreado desde o commit
+`60674b8 chore: bootstrap tes engine workspace`.
 
 Como a exclusao nao tinha relacao com o Prompt 03, foi executado:
 
@@ -86,27 +88,27 @@ Alterados:
 
 ## 6. Tags atribuidas
 
-| Projeto | Tags |
-| --- | --- |
-| `web` | `scope:frontend`, `type:app`, `platform:browser` |
-| `api` | `scope:backend`, `type:app`, `platform:node` |
-| `worker` | `scope:backend`, `type:app`, `platform:node`, `runtime:worker` |
-| `frontend-shell` | `scope:frontend`, `type:shell`, `platform:browser` |
-| `frontend-ui` | `scope:frontend`, `type:ui`, `platform:browser` |
-| `backend-common` | `scope:backend`, `type:util`, `platform:node` |
-| `shared-contracts` | `scope:shared`, `type:contracts`, `platform:agnostic` |
-| `shared-domain-types` | `scope:shared`, `type:domain`, `platform:agnostic` |
-| `shared-testing` | `scope:shared`, `type:testing`, `platform:agnostic` |
-| `engine-core` | `scope:engine`, `type:domain`, `platform:agnostic` |
+| Projeto               | Tags                                                           |
+| --------------------- | -------------------------------------------------------------- |
+| `web`                 | `scope:frontend`, `type:app`, `platform:browser`               |
+| `api`                 | `scope:backend`, `type:app`, `platform:node`                   |
+| `worker`              | `scope:backend`, `type:app`, `platform:node`, `runtime:worker` |
+| `frontend-shell`      | `scope:frontend`, `type:shell`, `platform:browser`             |
+| `frontend-ui`         | `scope:frontend`, `type:ui`, `platform:browser`                |
+| `backend-common`      | `scope:backend`, `type:util`, `platform:node`                  |
+| `shared-contracts`    | `scope:shared`, `type:contracts`, `platform:agnostic`          |
+| `shared-domain-types` | `scope:shared`, `type:domain`, `platform:agnostic`             |
+| `shared-testing`      | `scope:shared`, `type:testing`, `platform:agnostic`            |
+| `engine-core`         | `scope:engine`, `type:domain`, `platform:agnostic`             |
 
 ## 7. Matriz final de dependencias
 
-| Origem | Pode depender de |
-| --- | --- |
-| `scope:frontend` | `scope:frontend`, `scope:shared` |
-| `scope:backend` | `scope:backend`, `scope:shared`, `scope:engine` |
-| `scope:engine` | `scope:engine`, `scope:shared` |
-| `scope:shared` | `scope:shared` |
+| Origem           | Pode depender de                                |
+| ---------------- | ----------------------------------------------- |
+| `scope:frontend` | `scope:frontend`, `scope:shared`                |
+| `scope:backend`  | `scope:backend`, `scope:shared`, `scope:engine` |
+| `scope:engine`   | `scope:engine`, `scope:shared`                  |
+| `scope:shared`   | `scope:shared`                                  |
 
 Dependencias proibidas:
 
@@ -154,7 +156,8 @@ Aliases publicos:
 @tes-engine/engines/core
 ```
 
-Aliases legados com hifen foram preservados temporariamente para compatibilidade, mas os novos imports usam o padrao publico com barras.
+Aliases legados com hifen foram preservados temporariamente para compatibilidade, mas os novos
+imports usam o padrao publico com barras.
 
 ## 11. Testes de dependencias permitidas
 
@@ -186,7 +189,8 @@ Arquitetura validada: 10 projetos com tags, APIs publicas e imports consistentes
 
 `pnpm lint`: passou para os 10 projetos.
 
-Observacao: uma execucao intermediaria de lint falhou porque foi executada em paralelo com fixtures temporarias invalidas. A execucao limpa e sequencial passou.
+Observacao: uma execucao intermediaria de lint falhou porque foi executada em paralelo com fixtures
+temporarias invalidas. A execucao limpa e sequencial passou.
 
 ## 15. Resultado dos testes
 
@@ -239,14 +243,17 @@ O `minio-init` permanece como servico de inicializacao ja concluido.
 
 ## 20. Peer dependency warnings
 
-`pnpm list --depth 0` nao apresentou warnings de peer dependency. Permanecem os avisos conhecidos de deprecacao dos executores `@nx/jest:jest` e `@nx/eslint:lint` para Nx v24.
+`pnpm list --depth 0` nao apresentou warnings de peer dependency. Permanecem os avisos conhecidos de
+deprecacao dos executores `@nx/jest:jest` e `@nx/eslint:lint` para Nx v24.
 
 ## 21. Decisoes e desvios
 
 - O screenshot excluido foi restaurado por estar rastreado e ser alheio ao Prompt 03.
-- Foram mantidos aliases legados em `tsconfig.base.json` para compatibilidade, mas os aliases canonicos novos foram adicionados e documentados.
+- Foram mantidos aliases legados em `tsconfig.base.json` para compatibilidade, mas os aliases
+  canonicos novos foram adicionados e documentados.
 - A validacao de fronteiras usa fixtures temporarias removidas ao final.
-- A validacao complementar em `tools/architecture/validate-project-tags.mjs` cobre regras que nao sao expressas apenas por tags Nx.
+- A validacao complementar em `tools/architecture/validate-project-tags.mjs` cobre regras que nao
+  sao expressas apenas por tags Nx.
 - Nenhuma feature futura foi implementada.
 
 ## 22. Pendencias
@@ -256,8 +263,10 @@ O `minio-init` permanece como servico de inicializacao ja concluido.
 
 ## 23. Riscos
 
-- Fixtures temporarias de fronteira nao devem ser executadas em paralelo com `pnpm lint`, pois sao arquivos propositalmente invalidos enquanto existem.
-- O Nx Graph gerou assets estaticos em `docs/execution/static/`; eles devem permanecer junto do HTML se o graph for aberto localmente.
+- Fixtures temporarias de fronteira nao devem ser executadas em paralelo com `pnpm lint`, pois sao
+  arquivos propositalmente invalidos enquanto existem.
+- O Nx Graph gerou assets estaticos em `docs/execution/static/`; eles devem permanecer junto do HTML
+  se o graph for aberto localmente.
 
 ## 24. Saida de git status --short
 
@@ -328,4 +337,6 @@ Nenhum arquivo fora de `C:\projetos\tes-engine` foi alterado.
 
 ## 28. Recomendacao para o Prompt 04
 
-Prosseguir somente com o proximo corte incremental definido, mantendo as fronteiras criadas aqui. Nao antecipar ORM, migrations, autenticacao, upload, parser XML, regras fiscais, wizard ou exportacoes.
+Prosseguir somente com o proximo corte incremental definido, mantendo as fronteiras criadas aqui.
+Nao antecipar ORM, migrations, autenticacao, upload, parser XML, regras fiscais, wizard ou
+exportacoes.

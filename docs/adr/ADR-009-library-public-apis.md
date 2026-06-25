@@ -6,13 +6,16 @@ Accepted.
 
 ## Context
 
-Libraries need stable import surfaces so applications and other libraries do not depend on internal file layouts.
+Libraries need stable import surfaces so applications and other libraries do not depend on internal
+file layouts.
 
 ## Decision
 
-Every library exposes its public API from `src/index.ts`. Cross-project imports use the `@tes-engine/...` aliases configured in `tsconfig.base.json`.
+Every library exposes its public API from `src/index.ts`. Cross-project imports use the
+`@tes-engine/...` aliases configured in `tsconfig.base.json`.
 
-Deep imports and relative imports that cross project roots are prohibited by architecture validation.
+Deep imports and relative imports that cross project roots are prohibited by architecture
+validation.
 
 ## Alternatives considered
 
@@ -22,4 +25,5 @@ Deep imports and relative imports that cross project roots are prohibited by arc
 
 ## Consequences
 
-Internal library files can change without forcing consumers to update. New public exports must be intentional.
+Internal library files can change without forcing consumers to update. New public exports must be
+intentional.

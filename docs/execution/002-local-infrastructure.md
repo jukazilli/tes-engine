@@ -6,7 +6,8 @@ Data: 2026-06-25
 
 Concluido.
 
-Foi configurada e validada a infraestrutura local de desenvolvimento com containers para PostgreSQL, Redis, MinIO, MinIO init e Mailpit.
+Foi configurada e validada a infraestrutura local de desenvolvimento com containers para PostgreSQL,
+Redis, MinIO, MinIO init e Mailpit.
 
 ## 2. Estado inicial encontrado
 
@@ -18,7 +19,8 @@ Repositorio: `C:\projetos\tes-engine`
  D docs/execution/tes-engine-prompt-001-web.png
 ```
 
-Essa alteracao ja existia antes do Prompt 02 e foi tratada como alteracao alheia ao escopo. Ela nao foi revertida nem incluida no commit deste corte.
+Essa alteracao ja existia antes do Prompt 02 e foi tratada como alteracao alheia ao escopo. Ela nao
+foi revertida nem incluida no commit deste corte.
 
 ## 3. Resultado do checkpoint Git
 
@@ -40,17 +42,18 @@ Resultado final:
 - Docker Compose: `v5.1.3`
 - Contexto Docker: `desktop-linux`
 
-Observacao: no primeiro preflight, `docker info` falhou porque o Docker Engine nao estava ativo. O Docker Desktop foi iniciado localmente e `docker info` passou a responder.
+Observacao: no primeiro preflight, `docker info` falhou porque o Docker Engine nao estava ativo. O
+Docker Desktop foi iniciado localmente e `docker info` passou a responder.
 
 ## 5. Imagens e versoes escolhidas
 
-| Servico | Imagem |
-| --- | --- |
-| PostgreSQL | `postgres:17.10-alpine` |
-| Redis | `redis:7.4-alpine` |
-| MinIO | `minio/minio:RELEASE.2025-09-07T16-13-09Z` |
-| MinIO Client | `minio/mc:RELEASE.2025-08-13T08-35-41Z` |
-| Mailpit | `axllent/mailpit:v1.29.1` |
+| Servico      | Imagem                                     |
+| ------------ | ------------------------------------------ |
+| PostgreSQL   | `postgres:17.10-alpine`                    |
+| Redis        | `redis:7.4-alpine`                         |
+| MinIO        | `minio/minio:RELEASE.2025-09-07T16-13-09Z` |
+| MinIO Client | `minio/mc:RELEASE.2025-08-13T08-35-41Z`    |
+| Mailpit      | `axllent/mailpit:v1.29.1`                  |
 
 Todas as imagens foram fixadas com tags explicitas; nenhuma imagem usa `latest`.
 
@@ -94,14 +97,14 @@ Tambem foi criado `.env.local` com credenciais locais geradas. O arquivo esta ig
 
 ## 8. Portas utilizadas
 
-| Servico | Porta container | Porta localhost |
-| --- | --- | --- |
-| PostgreSQL | `5432` | `15432` |
-| Redis | `6379` | `16379` |
-| MinIO API | `9000` | `9000` |
-| MinIO Console | `9001` | `9001` |
-| Mailpit SMTP | `1025` | `1025` |
-| Mailpit Web | `8025` | `8025` |
+| Servico       | Porta container | Porta localhost |
+| ------------- | --------------- | --------------- |
+| PostgreSQL    | `5432`          | `15432`         |
+| Redis         | `6379`          | `16379`         |
+| MinIO API     | `9000`          | `9000`          |
+| MinIO Console | `9001`          | `9001`          |
+| Mailpit SMTP  | `1025`          | `1025`          |
+| Mailpit Web   | `8025`          | `8025`          |
 
 As portas foram publicadas somente em `127.0.0.1`.
 
@@ -220,7 +223,8 @@ Infraestrutura local validada com sucesso.
 
 `pnpm test`: passou para os 10 projetos.
 
-Observacao: o teste do worker foi ajustado para controlar `NODE_ENV` localmente, evitando dependencia do ambiente do shell.
+Observacao: o teste do worker foi ajustado para controlar `NODE_ENV` localmente, evitando
+dependencia do ambiente do shell.
 
 ## 20. Resultado dos builds
 
@@ -243,7 +247,8 @@ tes-engine-local_postgres_data
 tes-engine-local_redis_data
 ```
 
-Apos subir novamente, `pnpm infra:validate` passou e confirmou que o bucket `tes-engine-dev` continuava disponivel.
+Apos subir novamente, `pnpm infra:validate` passou e confirmou que o bucket `tes-engine-dev`
+continuava disponivel.
 
 ## 22. Verificacao de peer dependencies
 
@@ -256,7 +261,8 @@ pnpm why @angular/cdk
 pnpm why @po-ui/ng-components
 ```
 
-Resultado: Angular `21.2.17`, Angular CDK `21.2.4` e PO UI `21.21.0` permanecem alinhados. Nao foram observados warnings relevantes de peer dependencies entre Angular, CDK, PO UI e Nx.
+Resultado: Angular `21.2.17`, Angular CDK `21.2.4` e PO UI `21.21.0` permanecem alinhados. Nao foram
+observados warnings relevantes de peer dependencies entre Angular, CDK, PO UI e Nx.
 
 ## 23. Decisoes e desvios
 
@@ -265,8 +271,10 @@ Resultado: Angular `21.2.17`, Angular CDK `21.2.4` e PO UI `21.21.0` permanecem 
 - `.env.example` manteve as portas padrao.
 - Nenhum processo externo foi encerrado.
 - Nenhum servico foi integrado a API, worker ou web.
-- Nenhum ORM, migration, BullMQ, upload, parser XML ou envio de e-mail da aplicacao foi implementado.
-- O bug do helper PowerShell `Invoke-Compose` foi corrigido renomeando o parametro para evitar conflito com `$Args`.
+- Nenhum ORM, migration, BullMQ, upload, parser XML ou envio de e-mail da aplicacao foi
+  implementado.
+- O bug do helper PowerShell `Invoke-Compose` foi corrigido renomeando o parametro para evitar
+  conflito com `$Args`.
 - A alteracao preexistente `D docs/execution/tes-engine-prompt-001-web.png` foi preservada.
 
 ## 24. Pendencias
@@ -276,9 +284,12 @@ Resultado: Angular `21.2.17`, Angular CDK `21.2.4` e PO UI `21.21.0` permanecem 
 
 ## 25. Riscos
 
-- As portas alternativas `15432` e `16379` sao locais deste ambiente. Outros desenvolvedores podem usar as portas padrao se estiverem livres.
-- Os warnings de plugins Docker locais ausentes (`docker-dev.exe`, `docker-feedback.exe`) permanecem no ambiente, mas nao bloquearam Docker Engine, Compose ou validacoes.
-- As credenciais de `.env.local` sao locais e nao devem ser reaproveitadas em ambiente compartilhado ou producao.
+- As portas alternativas `15432` e `16379` sao locais deste ambiente. Outros desenvolvedores podem
+  usar as portas padrao se estiverem livres.
+- Os warnings de plugins Docker locais ausentes (`docker-dev.exe`, `docker-feedback.exe`) permanecem
+  no ambiente, mas nao bloquearam Docker Engine, Compose ou validacoes.
+- As credenciais de `.env.local` sao locais e nao devem ser reaproveitadas em ambiente compartilhado
+  ou producao.
 
 ## 26. Saida de `git status --short`
 
@@ -326,4 +337,6 @@ Nenhum arquivo fora de `C:\projetos\tes-engine` foi alterado.
 
 ## 29. Recomendacao para o Prompt 03
 
-Liberar o Prompt 03 apenas apos revisar este relatorio e manter a infraestrutura local validada. O proximo corte deve tratar arquitetura modular, tags Nx e limites de dependencia, sem antecipar ORM, entidades ou integracoes de aplicacao.
+Liberar o Prompt 03 apenas apos revisar este relatorio e manter a infraestrutura local validada. O
+proximo corte deve tratar arquitetura modular, tags Nx e limites de dependencia, sem antecipar ORM,
+entidades ou integracoes de aplicacao.

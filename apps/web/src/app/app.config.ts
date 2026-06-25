@@ -4,9 +4,5 @@ import { provideRouter } from '@angular/router';
 import { appRoutes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideAnimations(),
-    provideRouter(appRoutes),
-  ]
+  providers: [provideBrowserGlobalErrorListeners(), provideAnimations(), provideRouter(appRoutes)],
 };

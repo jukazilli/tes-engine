@@ -1,36 +1,26 @@
 {
-    "name":  "shared-domain-types",
-    "$schema":  "../../../node_modules/nx/schemas/project-schema.json",
-    "sourceRoot":  "libs/shared/domain-types/src",
-    "projectType":  "library",
-    "tags":  [
-                 "scope:shared",
-                 "type:domain",
-                 "platform:agnostic"
-             ],
-    "targets":  {
-                    "build":  {
-                                  "executor":  "@nx/js:tsc",
-                                  "outputs":  [
-                                                  "{options.outputPath}"
-                                              ],
-                                  "options":  {
-                                                  "outputPath":  "dist/libs/shared/domain-types",
-                                                  "main":  "libs/shared/domain-types/src/index.ts",
-                                                  "tsConfig":  "libs/shared/domain-types/tsconfig.lib.json",
-                                                  "assets":  [
-                                                                 "libs/shared/domain-types/*.md"
-                                                             ]
-                                              }
-                              },
-                    "test":  {
-                                 "executor":  "@nx/jest:jest",
-                                 "outputs":  [
-                                                 "{workspaceRoot}/coverage/{projectRoot}"
-                                             ],
-                                 "options":  {
-                                                 "jestConfig":  "libs/shared/domain-types/jest.config.cts"
-                                             }
-                             }
-                }
+  "name": "shared-domain-types",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/domain-types/src",
+  "projectType": "library",
+  "tags": ["scope:shared", "type:domain", "platform:agnostic"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/domain-types",
+        "main": "libs/shared/domain-types/src/index.ts",
+        "tsConfig": "libs/shared/domain-types/tsconfig.lib.json",
+        "assets": ["libs/shared/domain-types/*.md"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/shared/domain-types/jest.config.cts"
+      }
+    }
+  }
 }

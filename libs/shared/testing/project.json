@@ -1,36 +1,26 @@
 {
-    "name":  "shared-testing",
-    "$schema":  "../../../node_modules/nx/schemas/project-schema.json",
-    "sourceRoot":  "libs/shared/testing/src",
-    "projectType":  "library",
-    "tags":  [
-                 "scope:shared",
-                 "type:testing",
-                 "platform:agnostic"
-             ],
-    "targets":  {
-                    "build":  {
-                                  "executor":  "@nx/js:tsc",
-                                  "outputs":  [
-                                                  "{options.outputPath}"
-                                              ],
-                                  "options":  {
-                                                  "outputPath":  "dist/libs/shared/testing",
-                                                  "main":  "libs/shared/testing/src/index.ts",
-                                                  "tsConfig":  "libs/shared/testing/tsconfig.lib.json",
-                                                  "assets":  [
-                                                                 "libs/shared/testing/*.md"
-                                                             ]
-                                              }
-                              },
-                    "test":  {
-                                 "executor":  "@nx/jest:jest",
-                                 "outputs":  [
-                                                 "{workspaceRoot}/coverage/{projectRoot}"
-                                             ],
-                                 "options":  {
-                                                 "jestConfig":  "libs/shared/testing/jest.config.cts"
-                                             }
-                             }
-                }
+  "name": "shared-testing",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/testing/src",
+  "projectType": "library",
+  "tags": ["scope:shared", "type:testing", "platform:agnostic"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/testing",
+        "main": "libs/shared/testing/src/index.ts",
+        "tsConfig": "libs/shared/testing/tsconfig.lib.json",
+        "assets": ["libs/shared/testing/*.md"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/shared/testing/jest.config.cts"
+      }
+    }
+  }
 }

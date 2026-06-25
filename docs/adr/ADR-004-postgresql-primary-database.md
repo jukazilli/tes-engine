@@ -6,11 +6,13 @@ Aceita
 
 ## Contexto
 
-O TES Engine precisara de persistencia relacional para tenants, usuarios, documentos, execucoes e auditoria. Neste corte nao ha ORM nem tabelas.
+O TES Engine precisara de persistencia relacional para tenants, usuarios, documentos, execucoes e
+auditoria. Neste corte nao ha ORM nem tabelas.
 
 ## Decisao
 
-Usar PostgreSQL em container local com imagem `postgres:17.10-alpine`, volume nomeado e health check `pg_isready`.
+Usar PostgreSQL em container local com imagem `postgres:17.10-alpine`, volume nomeado e health check
+`pg_isready`.
 
 ## Alternativas
 
@@ -19,4 +21,5 @@ Usar PostgreSQL em container local com imagem `postgres:17.10-alpine`, volume no
 
 ## Consequencias
 
-O ambiente local fica proximo do banco esperado para desenvolvimento. Migrations e ORM serao adicionados em corte futuro.
+O ambiente local fica proximo do banco esperado para desenvolvimento. Migrations e ORM serao
+adicionados em corte futuro.

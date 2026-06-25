@@ -13,7 +13,8 @@ Foi criado o monorepo Nx inicial do TES Engine em `C:\projetos\tes-engine`, com:
 - Regras iniciais de module boundaries via ESLint/Nx.
 - README, stack baseline, mapa modular e ADRs iniciais.
 
-Nao foram criados banco, Redis, MinIO, Docker Compose, autenticacao, parser XML, regras fiscais, wizard ou exportacoes.
+Nao foram criados banco, Redis, MinIO, Docker Compose, autenticacao, parser XML, regras fiscais,
+wizard ou exportacoes.
 
 ## 2. Estado anterior
 
@@ -52,22 +53,22 @@ pnpm build
 
 ## 4. Versoes instaladas
 
-| Item | Versao |
-| --- | --- |
-| Node.js | 22.12.0 |
-| Corepack | 0.29.4 |
-| pnpm | 9.11.0 |
-| Git | 2.41.0.windows.1 |
-| Nx | 23.0.1 |
-| Angular | 21.2.17 |
-| Angular CDK | 21.2.4 |
-| PO UI | 21.21.0 |
-| NestJS | 11.1.27 |
-| TypeScript | 5.9.3 |
-| RxJS | 7.8.2 |
-| Zone.js | 0.15.1 |
-| Jest | 30.3.0 |
-| Supertest | 7.1.4 |
+| Item        | Versao           |
+| ----------- | ---------------- |
+| Node.js     | 22.12.0          |
+| Corepack    | 0.29.4           |
+| pnpm        | 9.11.0           |
+| Git         | 2.41.0.windows.1 |
+| Nx          | 23.0.1           |
+| Angular     | 21.2.17          |
+| Angular CDK | 21.2.4           |
+| PO UI       | 21.21.0          |
+| NestJS      | 11.1.27          |
+| TypeScript  | 5.9.3            |
+| RxJS        | 7.8.2            |
+| Zone.js     | 0.15.1           |
+| Jest        | 30.3.0           |
+| Supertest   | 7.1.4            |
 
 ## 5. Estrutura final criada
 
@@ -142,7 +143,9 @@ Detalhes relevantes:
 - `pnpm build:worker`: passou.
 - `pnpm build`: passou para os 10 projetos.
 
-Observacao: o bundle inicial de producao do web ficou em aproximadamente 2.86 MB bruto e 558.52 kB estimado transferido. O budget inicial foi ajustado para `maximumWarning: 3mb` e `maximumError: 4mb`, pois o requisito deste corte exige PO UI real com tema instalado.
+Observacao: o bundle inicial de producao do web ficou em aproximadamente 2.86 MB bruto e 558.52 kB
+estimado transferido. O budget inicial foi ajustado para `maximumWarning: 3mb` e
+`maximumError: 4mb`, pois o requisito deste corte exige PO UI real com tema instalado.
 
 ## 10. Health check
 
@@ -155,7 +158,7 @@ http://localhost:3333/api/health
 Resposta validada:
 
 ```json
-{"status":"ok","service":"tes-engine-api"}
+{ "status": "ok", "service": "tes-engine-api" }
 ```
 
 ## 11. Validacao visual PO UI
@@ -187,29 +190,37 @@ node dist/apps/worker/main.js
 Log observado:
 
 ```json
-{"service":"tes-engine-worker","status":"initialized","environment":"development"}
+{ "service": "tes-engine-worker", "status": "initialized", "environment": "development" }
 ```
 
-`pnpm nx serve worker` foi testado, mas o target `serve` do Nx permaneceu em modo continuo/watch e foi encerrado por timeout. A validacao objetiva do executavel foi feita com o artefato buildado.
+`pnpm nx serve worker` foi testado, mas o target `serve` do Nx permaneceu em modo continuo/watch e
+foi encerrado por timeout. A validacao objetiva do executavel foi feita com o artefato buildado.
 
 ## 13. Decisoes e desvios
 
-- Angular 22 foi descartado porque PO UI 21.21.0 declara compatibilidade com Angular `^21` e `@nx/angular` 23.0.1 limita builders Angular a `<22`.
-- Os apps `api-e2e` e `worker-e2e` criados automaticamente pelo gerador Nest foram removidos por ficarem fora da estrutura minima pedida.
+- Angular 22 foi descartado porque PO UI 21.21.0 declara compatibilidade com Angular `^21` e
+  `@nx/angular` 23.0.1 limita builders Angular a `<22`.
+- Os apps `api-e2e` e `worker-e2e` criados automaticamente pelo gerador Nest foram removidos por
+  ficarem fora da estrutura minima pedida.
 - O Jest do web foi configurado para transformar ESM de Angular, PO UI, ECharts e ZRender.
-- `PoModule` foi trocado por modulos PO UI especificos (`PoMenuModule`, `PoPageModule`, `PoToolbarModule`).
-- O screenshot do Playwright foi salvo inicialmente em `C:\projetos` e movido para `docs/execution/` para manter o estado final restrito ao projeto.
+- `PoModule` foi trocado por modulos PO UI especificos (`PoMenuModule`, `PoPageModule`,
+  `PoToolbarModule`).
+- O screenshot do Playwright foi salvo inicialmente em `C:\projetos` e movido para `docs/execution/`
+  para manter o estado final restrito ao projeto.
 
 ## 14. Pendencias conhecidas
 
 - Nenhuma pendencia bloqueante do Prompt 01.
-- O executor `@nx/jest:jest` e o executor `@nx/eslint:lint` aparecem com aviso de deprecacao para Nx v24; nao foram migrados neste corte para evitar mudanca fora do escopo.
+- O executor `@nx/jest:jest` e o executor `@nx/eslint:lint` aparecem com aviso de deprecacao para Nx
+  v24; nao foram migrados neste corte para evitar mudanca fora do escopo.
 - O Prompt 02 deve configurar infraestrutura local: PostgreSQL, Redis, MinIO e Mailpit.
 
 ## 15. Riscos identificados
 
-- O bundle inicial do PO UI e tema e maior que o budget padrao gerado pelo Nx. O budget foi ajustado para a baseline; uma otimizacao fina deve ser tratada quando houver telas reais.
-- Angular 21 e PO UI 21 estao alinhados agora, mas upgrades futuros devem ser coordenados com peer dependencies do PO UI.
+- O bundle inicial do PO UI e tema e maior que o budget padrao gerado pelo Nx. O budget foi ajustado
+  para a baseline; uma otimizacao fina deve ser tratada quando houver telas reais.
+- Angular 21 e PO UI 21 estao alinhados agora, mas upgrades futuros devem ser coordenados com peer
+  dependencies do PO UI.
 
 ## 16. `git status --short`
 
@@ -239,7 +250,8 @@ Estado antes do commit do Prompt 01:
 
 ## 17. Escopo de arquivos
 
-Estado final pretendido: somente arquivos dentro de `C:\projetos\tes-engine`. Nao foram apagados ou alterados outros projetos em `C:\projetos`.
+Estado final pretendido: somente arquivos dentro de `C:\projetos\tes-engine`. Nao foram apagados ou
+alterados outros projetos em `C:\projetos`.
 
 ## 18. Proximo passo recomendado
 

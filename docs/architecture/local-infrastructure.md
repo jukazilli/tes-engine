@@ -62,11 +62,14 @@ Credenciais locais ficam em `.env.local`, ignorado pelo Git.
 
 ## Local, compartilhado e producao
 
-Local usa containers e credenciais descartaveis. Desenvolvimento compartilhado devera usar infraestrutura provisionada e segredos gerenciados. Producao nao deve usar Mailpit, credenciais locais, volumes Docker locais ou MinIO sem avaliacao operacional.
+Local usa containers e credenciais descartaveis. Desenvolvimento compartilhado devera usar
+infraestrutura provisionada e segredos gerenciados. Producao nao deve usar Mailpit, credenciais
+locais, volumes Docker locais ou MinIO sem avaliacao operacional.
 
 ## Por que MinIO localmente
 
-MinIO fornece API S3 compativel para validar contratos de armazenamento sem depender de servico externo no desenvolvimento local.
+MinIO fornece API S3 compativel para validar contratos de armazenamento sem depender de servico
+externo no desenvolvimento local.
 
 ## Por que Mailpit localmente
 

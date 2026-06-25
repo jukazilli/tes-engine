@@ -104,13 +104,7 @@ function projectForFile(file, projects) {
 
 function resolveRelativeImport(file, specifier) {
   const base = path.resolve(path.dirname(file), specifier);
-  const candidates = [
-    base,
-    `${base}.ts`,
-    `${base}.tsx`,
-    `${base}.js`,
-    path.join(base, 'index.ts'),
-  ];
+  const candidates = [base, `${base}.ts`, `${base}.tsx`, `${base}.js`, path.join(base, 'index.ts')];
 
   return candidates.find((candidate) => existsSync(candidate));
 }
@@ -192,15 +186,16 @@ for (const [alias, target] of Object.entries(expectedAliases)) {
   }
 }
 
-const sourceFiles = walk(workspaceRoot, (file) => /\.(ts|tsx|js|jsx|mjs|cjs)$/.test(file))
-  .filter((file) => {
+const sourceFiles = walk(workspaceRoot, (file) => /\.(ts|tsx|js|jsx|mjs|cjs)$/.test(file)).filter(
+  (file) => {
     const relative = normalizePath(path.relative(workspaceRoot, file));
     return (
       (relative.startsWith('apps/') || relative.startsWith('libs/')) &&
       !relative.includes('/node_modules/') &&
       !relative.includes('/dist/')
     );
-  });
+  },
+);
 
 for (const file of sourceFiles) {
   const project = projectForFile(file, projects);
@@ -218,7 +213,9 @@ for (const file of sourceFiles) {
       const publicAlias = [...allowedAliases].find((alias) => specifier === alias);
 
       if (!publicAlias) {
-        errors.push(`${relativeFile}: import deve usar API publica conhecida, encontrado ${specifier}`);
+        errors.push(
+          `${relativeFile}: import deve usar API publica conhecida, encontrado ${specifier}`,
+        );
       }
     }
 
@@ -265,4 +262,6 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log(`Arquitetura validada: ${projects.length} projetos com tags, APIs publicas e imports consistentes.`);
+console.log(
+  `Arquitetura validada: ${projects.length} projetos com tags, APIs publicas e imports consistentes.`,
+);

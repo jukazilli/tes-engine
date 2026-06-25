@@ -2,23 +2,23 @@
 
 ## Apps
 
-| App | Tags | Responsabilidade |
-| --- | --- | --- |
-| `apps/web` | `scope:frontend`, `type:app`, `platform:browser` | SPA Angular com PO UI, shell inicial, menu, toolbar e rota inicial. |
-| `apps/api` | `scope:backend`, `type:app`, `platform:node` | API NestJS com prefixo global `/api` e endpoint `GET /api/health`. |
+| App           | Tags                                                           | Responsabilidade                                                                       |
+| ------------- | -------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `apps/web`    | `scope:frontend`, `type:app`, `platform:browser`               | SPA Angular com PO UI, shell inicial, menu, toolbar e rota inicial.                    |
+| `apps/api`    | `scope:backend`, `type:app`, `platform:node`                   | API NestJS com prefixo global `/api` e endpoint `GET /api/health`.                     |
 | `apps/worker` | `scope:backend`, `type:app`, `platform:node`, `runtime:worker` | Processo NestJS separado, sem porta HTTP publica, preparado para processamento futuro. |
 
 ## Bibliotecas
 
-| Biblioteca | Tags | Responsabilidade |
-| --- | --- | --- |
-| `libs/frontend/shell` | `scope:frontend`, `type:shell`, `platform:browser` | Estrutura de shell e integracoes de navegacao do frontend. |
-| `libs/frontend/ui` | `scope:frontend`, `type:ui`, `platform:browser` | Componentes visuais reutilizaveis do frontend. |
-| `libs/backend/common` | `scope:backend`, `type:util`, `platform:node` | Utilitarios comuns do backend. |
-| `libs/shared/contracts` | `scope:shared`, `type:contracts`, `platform:agnostic` | Contratos tipados entre camadas. |
-| `libs/shared/domain-types` | `scope:shared`, `type:domain`, `platform:agnostic` | Tipos de dominio compartilhados sem dependencia de framework. |
-| `libs/shared/testing` | `scope:shared`, `type:testing`, `platform:agnostic` | Utilitarios de teste compartilhados. |
-| `libs/engines/core` | `scope:engine`, `type:domain`, `platform:agnostic` | Base futura dos motores deterministas, sem dependencia de Angular, NestJS ou PO UI. |
+| Biblioteca                 | Tags                                                  | Responsabilidade                                                                    |
+| -------------------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `libs/frontend/shell`      | `scope:frontend`, `type:shell`, `platform:browser`    | Estrutura de shell e integracoes de navegacao do frontend.                          |
+| `libs/frontend/ui`         | `scope:frontend`, `type:ui`, `platform:browser`       | Componentes visuais reutilizaveis do frontend.                                      |
+| `libs/backend/common`      | `scope:backend`, `type:util`, `platform:node`         | Utilitarios comuns do backend.                                                      |
+| `libs/shared/contracts`    | `scope:shared`, `type:contracts`, `platform:agnostic` | Contratos tipados entre camadas.                                                    |
+| `libs/shared/domain-types` | `scope:shared`, `type:domain`, `platform:agnostic`    | Tipos de dominio compartilhados sem dependencia de framework.                       |
+| `libs/shared/testing`      | `scope:shared`, `type:testing`, `platform:agnostic`   | Utilitarios de teste compartilhados.                                                |
+| `libs/engines/core`        | `scope:engine`, `type:domain`, `platform:agnostic`    | Base futura dos motores deterministas, sem dependencia de Angular, NestJS ou PO UI. |
 
 ## Dependencias permitidas
 
@@ -47,4 +47,6 @@
 
 ## Regra central
 
-O frontend apresenta fluxos e coleta interacoes. O backend orquestra casos de uso e integra infraestrutura. Os contratos compartilhados definem fronteiras. Engines executam logica deterministica sem depender de frameworks.
+O frontend apresenta fluxos e coleta interacoes. O backend orquestra casos de uso e integra
+infraestrutura. Os contratos compartilhados definem fronteiras. Engines executam logica
+deterministica sem depender de frameworks.

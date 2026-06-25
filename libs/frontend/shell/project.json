@@ -1,36 +1,26 @@
 {
-    "name":  "frontend-shell",
-    "$schema":  "../../../node_modules/nx/schemas/project-schema.json",
-    "sourceRoot":  "libs/frontend/shell/src",
-    "projectType":  "library",
-    "tags":  [
-                 "scope:frontend",
-                 "type:shell",
-                 "platform:browser"
-             ],
-    "targets":  {
-                    "build":  {
-                                  "executor":  "@nx/js:tsc",
-                                  "outputs":  [
-                                                  "{options.outputPath}"
-                                              ],
-                                  "options":  {
-                                                  "outputPath":  "dist/libs/frontend/shell",
-                                                  "main":  "libs/frontend/shell/src/index.ts",
-                                                  "tsConfig":  "libs/frontend/shell/tsconfig.lib.json",
-                                                  "assets":  [
-                                                                 "libs/frontend/shell/*.md"
-                                                             ]
-                                              }
-                              },
-                    "test":  {
-                                 "executor":  "@nx/jest:jest",
-                                 "outputs":  [
-                                                 "{workspaceRoot}/coverage/{projectRoot}"
-                                             ],
-                                 "options":  {
-                                                 "jestConfig":  "libs/frontend/shell/jest.config.cts"
-                                             }
-                             }
-                }
+  "name": "frontend-shell",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/frontend/shell/src",
+  "projectType": "library",
+  "tags": ["scope:frontend", "type:shell", "platform:browser"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/frontend/shell",
+        "main": "libs/frontend/shell/src/index.ts",
+        "tsConfig": "libs/frontend/shell/tsconfig.lib.json",
+        "assets": ["libs/frontend/shell/*.md"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/frontend/shell/jest.config.cts"
+      }
+    }
+  }
 }

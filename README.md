@@ -1,8 +1,11 @@
 # TES Engine
 
-TES Engine e um SaaS B2B para analise de XMLs de NF-e, consolidacao de cenarios de TES e geracao futura de arquivos para importacao no TOTVS Protheus por meio do MILE.
+TES Engine e um SaaS B2B para analise de XMLs de NF-e, consolidacao de cenarios de TES e geracao
+futura de arquivos para importacao no TOTVS Protheus por meio do MILE.
 
-Este repositorio contem a baseline tecnica dos Prompts 01 a 03. Banco de dados local, Redis, MinIO, Mailpit e fronteiras Nx estao configurados. ORM, migrations, entidades, upload, parser XML, regras fiscais, autenticacao, wizard e exportacoes ficam para cortes posteriores.
+Este repositorio contem a baseline tecnica dos Prompts 01 a 03. Banco de dados local, Redis, MinIO,
+Mailpit e fronteiras Nx estao configurados. ORM, migrations, entidades, upload, parser XML, regras
+fiscais, autenticacao, wizard e exportacoes ficam para cortes posteriores.
 
 ## Pre-requisitos
 
@@ -45,12 +48,14 @@ Servicos locais:
 ## Qualidade
 
 ```powershell
+pnpm format:check
 pnpm architecture:validate
 pnpm architecture:boundaries
 pnpm lint
 pnpm test
 pnpm build
 pnpm quality
+pnpm ci:validate
 pnpm build:web
 pnpm build:api
 pnpm build:worker
@@ -58,6 +63,9 @@ pnpm affected:lint
 pnpm affected:test
 pnpm graph
 ```
+
+`pnpm quality` executa formatacao, validacoes arquiteturais, lint, testes e build em sequencia. O CI
+usa a mesma base sem exigir Docker ou servicos locais.
 
 ## Estrutura inicial
 
@@ -93,8 +101,16 @@ tools/
 - O backend pode usar libs compartilhadas e engines.
 - Engines devem permanecer independentes de Angular, NestJS e PO UI.
 - Shared deve conter contratos e tipos reutilizaveis, sem dependencia de camadas superiores.
-- Fronteiras Nx, aliases publicos e restricoes por plataforma estao documentados em `docs/architecture/module-boundaries.md`.
+- Fronteiras Nx, aliases publicos e restricoes por plataforma estao documentados em
+  `docs/architecture/module-boundaries.md`.
+
+## Contribuicao
+
+Use Conventional Commits. Husky, lint-staged e Commitlint validam arquivos staged e mensagens de
+commit localmente. Veja `CONTRIBUTING.md` para fluxo completo, politica de secrets, PRs e definicao
+de pronto.
 
 ## Proximo passo
 
-O Prompt 04 deve continuar a evolucao incremental sem antecipar ORM, migrations, autenticacao ou funcionalidades fiscais fora do escopo definido.
+O Prompt 04 deve continuar a evolucao incremental sem antecipar ORM, migrations, autenticacao ou
+funcionalidades fiscais fora do escopo definido.

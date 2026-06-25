@@ -11,21 +11,22 @@ Infraestrutura local de desenvolvimento do TES Engine via Docker Compose.
 
 ## Servicos
 
-| Servico | Imagem | Porta local |
-| --- | --- | --- |
-| PostgreSQL | `postgres:17.10-alpine` | `POSTGRES_PORT`, padrao `5432` |
-| Redis | `redis:7.4-alpine` | `REDIS_PORT`, padrao `6379` |
-| MinIO API | `minio/minio:RELEASE.2025-09-07T16-13-09Z` | `9000` |
-| MinIO Console | `minio/minio:RELEASE.2025-09-07T16-13-09Z` | `9001` |
-| MinIO Client | `minio/mc:RELEASE.2025-08-13T08-35-41Z` | sem porta |
-| Mailpit SMTP | `axllent/mailpit:v1.29.1` | `1025` |
-| Mailpit Web | `axllent/mailpit:v1.29.1` | `8025` |
+| Servico       | Imagem                                     | Porta local                    |
+| ------------- | ------------------------------------------ | ------------------------------ |
+| PostgreSQL    | `postgres:17.10-alpine`                    | `POSTGRES_PORT`, padrao `5432` |
+| Redis         | `redis:7.4-alpine`                         | `REDIS_PORT`, padrao `6379`    |
+| MinIO API     | `minio/minio:RELEASE.2025-09-07T16-13-09Z` | `9000`                         |
+| MinIO Console | `minio/minio:RELEASE.2025-09-07T16-13-09Z` | `9001`                         |
+| MinIO Client  | `minio/mc:RELEASE.2025-08-13T08-35-41Z`    | sem porta                      |
+| Mailpit SMTP  | `axllent/mailpit:v1.29.1`                  | `1025`                         |
+| Mailpit Web   | `axllent/mailpit:v1.29.1`                  | `8025`                         |
 
 As portas sao publicadas somente em `127.0.0.1`.
 
 ## `.env.local`
 
-Crie `.env.local` na raiz do projeto a partir de `.env.example` e substitua as senhas por valores locais.
+Crie `.env.local` na raiz do projeto a partir de `.env.example` e substitua as senhas por valores
+locais.
 
 Exemplo de portas alternativas quando `5432` e `6379` ja estiverem ocupadas:
 

@@ -9,13 +9,15 @@ const fixtures = [
     name: 'frontend-nao-pode-depender-de-backend',
     relativePath: 'apps/web/src/__architecture_frontend_backend.invalid.ts',
     shouldPass: false,
-    source: "import { normalizeServiceName } from '@tes-engine/backend/common';\n\nvoid normalizeServiceName;\n",
+    source:
+      "import { normalizeServiceName } from '@tes-engine/backend/common';\n\nvoid normalizeServiceName;\n",
   },
   {
     name: 'shared-nao-pode-depender-de-engine',
     relativePath: 'libs/shared/contracts/src/__architecture_shared_engine.invalid.ts',
     shouldPass: false,
-    source: "import { getEngineCoreInfo } from '@tes-engine/engines/core';\n\nvoid getEngineCoreInfo;\n",
+    source:
+      "import { getEngineCoreInfo } from '@tes-engine/engines/core';\n\nvoid getEngineCoreInfo;\n",
   },
   {
     name: 'engine-nao-pode-depender-de-nestjs',
@@ -27,19 +29,22 @@ const fixtures = [
     name: 'backend-pode-depender-de-shared',
     relativePath: 'apps/api/src/__architecture_backend_shared.valid.ts',
     shouldPass: true,
-    source: "import { HealthResponse } from '@tes-engine/shared/contracts';\n\nconst response: HealthResponse = { status: 'ok', service: 'api' };\nvoid response;\n",
+    source:
+      "import { HealthResponse } from '@tes-engine/shared/contracts';\n\nconst response: HealthResponse = { status: 'ok', service: 'api' };\nvoid response;\n",
   },
   {
     name: 'backend-pode-depender-de-engine',
     relativePath: 'apps/api/src/__architecture_backend_engine.valid.ts',
     shouldPass: true,
-    source: "import { getEngineCoreInfo } from '@tes-engine/engines/core';\n\nvoid getEngineCoreInfo();\n",
+    source:
+      "import { getEngineCoreInfo } from '@tes-engine/engines/core';\n\nvoid getEngineCoreInfo();\n",
   },
   {
     name: 'web-pode-depender-de-frontend-e-shared',
     relativePath: 'apps/web/src/__architecture_web_frontend_shared.valid.ts',
     shouldPass: true,
-    source: "import { frontendUiMarker } from '@tes-engine/frontend/ui';\nimport { HealthResponse } from '@tes-engine/shared/contracts';\n\nconst response: HealthResponse = { status: 'ok', service: frontendUiMarker.library };\nvoid response;\n",
+    source:
+      "import { frontendUiMarker } from '@tes-engine/frontend/ui';\nimport { HealthResponse } from '@tes-engine/shared/contracts';\n\nconst response: HealthResponse = { status: 'ok', service: frontendUiMarker.library };\nvoid response;\n",
   },
 ];
 

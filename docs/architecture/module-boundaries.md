@@ -25,36 +25,36 @@ libs
 
 Every Nx project must declare one `scope:*`, one `type:*` and one `platform:*` tag.
 
-| Project | Tags |
-| --- | --- |
-| `web` | `scope:frontend`, `type:app`, `platform:browser` |
-| `api` | `scope:backend`, `type:app`, `platform:node` |
-| `worker` | `scope:backend`, `type:app`, `platform:node`, `runtime:worker` |
-| `frontend-shell` | `scope:frontend`, `type:shell`, `platform:browser` |
-| `frontend-ui` | `scope:frontend`, `type:ui`, `platform:browser` |
-| `backend-common` | `scope:backend`, `type:util`, `platform:node` |
-| `shared-contracts` | `scope:shared`, `type:contracts`, `platform:agnostic` |
-| `shared-domain-types` | `scope:shared`, `type:domain`, `platform:agnostic` |
-| `shared-testing` | `scope:shared`, `type:testing`, `platform:agnostic` |
-| `engine-core` | `scope:engine`, `type:domain`, `platform:agnostic` |
+| Project               | Tags                                                           |
+| --------------------- | -------------------------------------------------------------- |
+| `web`                 | `scope:frontend`, `type:app`, `platform:browser`               |
+| `api`                 | `scope:backend`, `type:app`, `platform:node`                   |
+| `worker`              | `scope:backend`, `type:app`, `platform:node`, `runtime:worker` |
+| `frontend-shell`      | `scope:frontend`, `type:shell`, `platform:browser`             |
+| `frontend-ui`         | `scope:frontend`, `type:ui`, `platform:browser`                |
+| `backend-common`      | `scope:backend`, `type:util`, `platform:node`                  |
+| `shared-contracts`    | `scope:shared`, `type:contracts`, `platform:agnostic`          |
+| `shared-domain-types` | `scope:shared`, `type:domain`, `platform:agnostic`             |
+| `shared-testing`      | `scope:shared`, `type:testing`, `platform:agnostic`            |
+| `engine-core`         | `scope:engine`, `type:domain`, `platform:agnostic`             |
 
 ## Allowed dependencies
 
-| Source scope | May depend on |
-| --- | --- |
-| `scope:frontend` | `scope:frontend`, `scope:shared` |
-| `scope:backend` | `scope:backend`, `scope:shared`, `scope:engine` |
-| `scope:engine` | `scope:engine`, `scope:shared` |
-| `scope:shared` | `scope:shared` |
+| Source scope     | May depend on                                   |
+| ---------------- | ----------------------------------------------- |
+| `scope:frontend` | `scope:frontend`, `scope:shared`                |
+| `scope:backend`  | `scope:backend`, `scope:shared`, `scope:engine` |
+| `scope:engine`   | `scope:engine`, `scope:shared`                  |
+| `scope:shared`   | `scope:shared`                                  |
 
 ## Forbidden dependencies
 
-| Source scope | Must not depend on |
-| --- | --- |
-| `scope:frontend` | `scope:backend`, `scope:engine` |
-| `scope:backend` | `scope:frontend` |
-| `scope:engine` | `scope:frontend`, `scope:backend` |
-| `scope:shared` | `scope:frontend`, `scope:backend`, `scope:engine` |
+| Source scope     | Must not depend on                                |
+| ---------------- | ------------------------------------------------- |
+| `scope:frontend` | `scope:backend`, `scope:engine`                   |
+| `scope:backend`  | `scope:frontend`                                  |
+| `scope:engine`   | `scope:frontend`, `scope:backend`                 |
+| `scope:shared`   | `scope:frontend`, `scope:backend`, `scope:engine` |
 
 Additional rules:
 
@@ -64,7 +64,8 @@ Additional rules:
 - `type:ui` must not depend on `type:app`.
 - Libraries must expose a public API through `src/index.ts`.
 - Imports across projects must use public aliases instead of deep paths or relative paths.
-- Engines must remain framework independent. Fiscal domain code must not depend on Angular, PO UI or NestJS.
+- Engines must remain framework independent. Fiscal domain code must not depend on Angular, PO UI or
+  NestJS.
 
 ## Public aliases
 
@@ -108,9 +109,11 @@ pnpm lint
 pnpm quality
 ```
 
-`architecture:validate` checks required tags, expected tags, public aliases, public APIs, deep imports, relative cross-project imports and framework restrictions.
+`architecture:validate` checks required tags, expected tags, public aliases, public APIs, deep
+imports, relative cross-project imports and framework restrictions.
 
-`architecture:boundaries` creates temporary fixtures, runs ESLint and removes the fixtures. It proves that:
+`architecture:boundaries` creates temporary fixtures, runs ESLint and removes the fixtures. It
+proves that:
 
 - frontend cannot depend on backend;
 - shared cannot depend on engine;
@@ -127,4 +130,5 @@ pnpm quality
 
 ## Future features
 
-Future prompts may add auth, database access, queues, upload, XML parsing, fiscal rules, wizard flows and exports. Those features must follow these boundaries instead of weakening them.
+Future prompts may add auth, database access, queues, upload, XML parsing, fiscal rules, wizard
+flows and exports. Those features must follow these boundaries instead of weakening them.
