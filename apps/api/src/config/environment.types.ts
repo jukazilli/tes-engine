@@ -12,6 +12,21 @@ export interface ApiEnvironment {
   CORS_ORIGINS: string;
   APP_VERSION: string;
   OPENAPI_ENABLED: boolean;
+  DATABASE_URL: string;
+  DATABASE_POOL_MIN: number;
+  DATABASE_POOL_MAX: number;
+  DATABASE_CONNECTION_TIMEOUT_MS: number;
+  DATABASE_QUERY_TIMEOUT_MS: number;
+  DATABASE_HEALTH_TIMEOUT_MS: number;
+}
+
+export interface DatabaseConfig {
+  url: string;
+  poolMin: number;
+  poolMax: number;
+  connectionTimeoutMs: number;
+  queryTimeoutMs: number;
+  healthTimeoutMs: number;
 }
 
 export interface AppConfig {
@@ -23,4 +38,5 @@ export interface AppConfig {
   corsOrigins: string[];
   version: string;
   openapiEnabled: boolean;
+  database: DatabaseConfig;
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { DatabaseHealthService } from '@tes-engine/backend/database';
 import { HealthResponse, LivenessResponse, ReadinessResponse } from '@tes-engine/shared/contracts';
 import { AppConfigService } from '../config/app-config.service';
 
@@ -6,7 +7,10 @@ import { AppConfigService } from '../config/app-config.service';
 export class HealthService {
   private initialized = false;
 
-  constructor(private readonly appConfigService: AppConfigService) {}
+  constructor(
+    private readonly appConfigService: AppConfigService,
+    private readonly databaseHealthService: DatabaseHealthService,
+  ) {}
 
   markInitialized(): void {
     this.initialized = true;
@@ -33,17 +37,20 @@ export class HealthService {
     };
   }
 
-  getReadiness(): ReadinessResponse {
+  async getReadiness(): Promise<ReadinessResponse> {
     const config = this.appConfigService.value;
+    const database = await this.databaseHealthService.check();
+    const ready = this.initialized && database.status === 'up';
 
     return {
-      status: 'ready',
+      status: ready ? 'ready' : 'not_ready',
       service: config.serviceName,
       version: config.version,
       environment: config.environment,
       timestamp: new Date().toISOString(),
       configurationLoaded: true,
       applicationInitialized: this.initialized,
+      database,
     };
   }
 }

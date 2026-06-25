@@ -14,13 +14,16 @@ export interface LivenessResponse {
 }
 
 export interface ReadinessResponse {
-  status: 'ready';
+  status: 'ready' | 'not_ready';
   service: string;
   version: string;
   environment: string;
   timestamp: string;
   configurationLoaded: boolean;
   applicationInitialized: boolean;
+  database: {
+    status: 'up' | 'down';
+  };
 }
 
 export interface ApiErrorResponse {

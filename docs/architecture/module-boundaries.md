@@ -13,6 +13,7 @@ libs
     ui
   backend
     common
+    database
   shared
     contracts
     domain-types
@@ -33,6 +34,7 @@ Every Nx project must declare one `scope:*`, one `type:*` and one `platform:*` t
 | `frontend-shell`      | `scope:frontend`, `type:shell`, `platform:browser`             |
 | `frontend-ui`         | `scope:frontend`, `type:ui`, `platform:browser`                |
 | `backend-common`      | `scope:backend`, `type:util`, `platform:node`                  |
+| `backend-database`    | `scope:backend`, `type:data-access`, `platform:node`           |
 | `shared-contracts`    | `scope:shared`, `type:contracts`, `platform:agnostic`          |
 | `shared-domain-types` | `scope:shared`, `type:domain`, `platform:agnostic`             |
 | `shared-testing`      | `scope:shared`, `type:testing`, `platform:agnostic`            |
@@ -74,6 +76,7 @@ Use these aliases for cross-project imports:
 ```typescript
 import { frontendUiMarker } from '@tes-engine/frontend/ui';
 import { normalizeServiceName } from '@tes-engine/backend/common';
+import { DatabaseModule } from '@tes-engine/backend/database';
 import { HealthResponse } from '@tes-engine/shared/contracts';
 import { EntityId } from '@tes-engine/shared/domain-types';
 import { createTestLabel } from '@tes-engine/shared/testing';

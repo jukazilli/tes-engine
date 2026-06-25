@@ -1,5 +1,6 @@
 import { Body, Controller, INestApplication, Post } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
+import { DatabaseHealthService } from '@tes-engine/backend/database';
 import { IsString } from 'class-validator';
 import request from 'supertest';
 import { configureApiApplication } from './bootstrap/configure-api-application';
@@ -29,7 +30,10 @@ describe('API foundation', () => {
     const moduleRef = await Test.createTestingModule({
       imports: [AppModule],
       controllers: [ValidationTestController],
-    }).compile();
+    })
+      .overrideProvider(DatabaseHealthService)
+      .useValue({ check: jest.fn().mockResolvedValue({ status: 'up' }) })
+      .compile();
 
     app = moduleRef.createNestApplication();
     await configureApiApplication(app, app.get(AppConfigService).value);
@@ -77,6 +81,7 @@ describe('API foundation', () => {
         status: 'ready',
         configurationLoaded: true,
         applicationInitialized: true,
+        database: { status: 'up' },
       }),
     );
   });

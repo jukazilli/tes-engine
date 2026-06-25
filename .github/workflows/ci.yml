@@ -20,6 +20,42 @@ jobs:
     name: Quality
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    services:
+      postgres:
+        image: postgres:17.10-alpine
+        env:
+          POSTGRES_DB: tes_engine
+          POSTGRES_USER: tes_engine
+          POSTGRES_PASSWORD: ci-postgres-password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U tes_engine -d tes_engine"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      NODE_ENV: test
+      API_PORT: 3000
+      API_PREFIX: api
+      LOG_LEVEL: silent
+      CORS_ORIGINS: http://localhost:4200,http://localhost:4300
+      APP_VERSION: 0.1.0
+      OPENAPI_ENABLED: 'true'
+      POSTGRES_HOST: 127.0.0.1
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: tes_engine
+      POSTGRES_USER: tes_engine
+      POSTGRES_PASSWORD: ci-postgres-password
+      POSTGRES_APP_USER: tes_engine_app
+      POSTGRES_APP_PASSWORD: ci-runtime-password
+      DATABASE_MIGRATION_URL: postgresql://tes_engine:ci-postgres-password@127.0.0.1:5432/tes_engine
+      DATABASE_URL: postgresql://tes_engine_app:ci-runtime-password@127.0.0.1:5432/tes_engine
+      DATABASE_POOL_MIN: 0
+      DATABASE_POOL_MAX: 10
+      DATABASE_CONNECTION_TIMEOUT_MS: 1000
+      DATABASE_QUERY_TIMEOUT_MS: 5000
+      DATABASE_HEALTH_TIMEOUT_MS: 1000
 
     steps:
       - name: Checkout
@@ -54,6 +90,15 @@ jobs:
 
       - name: Validate typecheck coverage
         run: pnpm typecheck:coverage
+
+      - name: Prepare database
+        run: |
+          pnpm db:bootstrap
+          pnpm db:migrate
+          pnpm db:check
+          pnpm db:validate
+          pnpm test:db
+          pnpm test:db:rls
 
       - name: Typecheck
         run: pnpm typecheck

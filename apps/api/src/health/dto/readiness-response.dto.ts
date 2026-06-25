@@ -1,8 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
 
+class DatabaseReadinessDto {
+  @ApiProperty({ enum: ['up', 'down'], example: 'up' })
+  status!: 'up' | 'down';
+}
+
 export class ReadinessResponseDto {
-  @ApiProperty({ example: 'ready' })
-  status!: 'ready';
+  @ApiProperty({ enum: ['ready', 'not_ready'], example: 'ready' })
+  status!: 'ready' | 'not_ready';
 
   @ApiProperty({ example: 'tes-engine-api' })
   service!: string;
@@ -21,4 +26,7 @@ export class ReadinessResponseDto {
 
   @ApiProperty({ example: true })
   applicationInitialized!: boolean;
+
+  @ApiProperty({ type: DatabaseReadinessDto })
+  database!: DatabaseReadinessDto;
 }

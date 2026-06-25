@@ -15,6 +15,7 @@
 | `libs/frontend/shell`      | `scope:frontend`, `type:shell`, `platform:browser`    | Estrutura de shell e integracoes de navegacao do frontend.                          |
 | `libs/frontend/ui`         | `scope:frontend`, `type:ui`, `platform:browser`       | Componentes visuais reutilizaveis do frontend.                                      |
 | `libs/backend/common`      | `scope:backend`, `type:util`, `platform:node`         | Utilitarios comuns do backend.                                                      |
+| `libs/backend/database`    | `scope:backend`, `type:data-access`, `platform:node`  | Conexao PostgreSQL, Drizzle schema, migracoes e helpers de contexto tenant.         |
 | `libs/shared/contracts`    | `scope:shared`, `type:contracts`, `platform:agnostic` | Contratos tipados entre camadas.                                                    |
 | `libs/shared/domain-types` | `scope:shared`, `type:domain`, `platform:agnostic`    | Tipos de dominio compartilhados sem dependencia de framework.                       |
 | `libs/shared/testing`      | `scope:shared`, `type:testing`, `platform:agnostic`   | Utilitarios de teste compartilhados.                                                |

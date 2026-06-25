@@ -63,6 +63,14 @@ export const environmentSchema = Joi.object<ApiEnvironment>({
     .try(Joi.boolean(), Joi.string().valid('true', 'false', 'TRUE', 'FALSE'))
     .custom((value: unknown) => parseBoolean(value))
     .required(),
+  DATABASE_URL: Joi.string()
+    .uri({ scheme: ['postgresql', 'postgres'] })
+    .required(),
+  DATABASE_POOL_MIN: Joi.number().integer().min(0).max(20).required(),
+  DATABASE_POOL_MAX: Joi.number().integer().min(1).max(50).required(),
+  DATABASE_CONNECTION_TIMEOUT_MS: Joi.number().integer().min(100).max(60_000).required(),
+  DATABASE_QUERY_TIMEOUT_MS: Joi.number().integer().min(100).max(60_000).required(),
+  DATABASE_HEALTH_TIMEOUT_MS: Joi.number().integer().min(100).max(10_000).required(),
 }).required();
 
 export function validateEnvironment(input: Record<string, unknown>): ApiEnvironment {
@@ -85,6 +93,12 @@ export function validateEnvironment(input: Record<string, unknown>): ApiEnvironm
     CORS_ORIGINS: value.CORS_ORIGINS,
     APP_VERSION: value.APP_VERSION,
     OPENAPI_ENABLED: parseBoolean(value.OPENAPI_ENABLED),
+    DATABASE_URL: value.DATABASE_URL,
+    DATABASE_POOL_MIN: Number(value.DATABASE_POOL_MIN),
+    DATABASE_POOL_MAX: Number(value.DATABASE_POOL_MAX),
+    DATABASE_CONNECTION_TIMEOUT_MS: Number(value.DATABASE_CONNECTION_TIMEOUT_MS),
+    DATABASE_QUERY_TIMEOUT_MS: Number(value.DATABASE_QUERY_TIMEOUT_MS),
+    DATABASE_HEALTH_TIMEOUT_MS: Number(value.DATABASE_HEALTH_TIMEOUT_MS),
   };
 }
 
