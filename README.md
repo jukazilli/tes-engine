@@ -7,6 +7,8 @@ Este repositorio contem a baseline tecnica dos Prompts 01 a 03. Banco de dados l
 Mailpit e fronteiras Nx estao configurados. ORM, migrations, entidades, upload, parser XML, regras
 fiscais, autenticacao, wizard e exportacoes ficam para cortes posteriores.
 
+Portal principal de documentacao: [`docs/README.md`](docs/README.md).
+
 ## Pre-requisitos
 
 - Node.js 22.12.0
@@ -49,6 +51,7 @@ Servicos locais:
 
 ```powershell
 pnpm format:check
+pnpm docs:validate
 pnpm architecture:validate
 pnpm architecture:boundaries
 pnpm lint
@@ -66,6 +69,14 @@ pnpm graph
 
 `pnpm quality` executa formatacao, validacoes arquiteturais, lint, testes e build em sequencia. O CI
 usa a mesma base sem exigir Docker ou servicos locais.
+
+Ordem recomendada de leitura:
+
+1. [`docs/governance/source-of-truth.md`](docs/governance/source-of-truth.md)
+2. [`docs/product/product-vision.md`](docs/product/product-vision.md)
+3. [`docs/architecture/system-overview.md`](docs/architecture/system-overview.md)
+4. [`docs/architecture/module-catalog.md`](docs/architecture/module-catalog.md)
+5. [`docs/domain/ubiquitous-language.md`](docs/domain/ubiquitous-language.md)
 
 ## Estrutura inicial
 
@@ -110,7 +121,11 @@ Use Conventional Commits. Husky, lint-staged e Commitlint validam arquivos stage
 commit localmente. Veja `CONTRIBUTING.md` para fluxo completo, politica de secrets, PRs e definicao
 de pronto.
 
+A governanca documental esta definida em
+[`docs/governance/source-of-truth.md`](docs/governance/source-of-truth.md) e validada por
+`pnpm docs:validate`.
+
 ## Proximo passo
 
-O Prompt 04 deve continuar a evolucao incremental sem antecipar ORM, migrations, autenticacao ou
-funcionalidades fiscais fora do escopo definido.
+O Prompt 05 estabelece a governanca documental. O Prompt 06 deve continuar a evolucao incremental
+sem antecipar ORM, migrations, autenticacao ou funcionalidades fiscais fora do escopo definido.

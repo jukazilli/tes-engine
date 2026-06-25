@@ -9,6 +9,7 @@ const errors = [];
 const requiredCommands = [
   'pnpm install --frozen-lockfile',
   'pnpm format:check',
+  'pnpm docs:validate',
   'pnpm architecture:validate',
   'pnpm architecture:boundaries',
   'pnpm lint',

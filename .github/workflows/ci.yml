@@ -43,6 +43,9 @@ jobs:
       - name: Check formatting
         run: pnpm format:check
 
+      - name: Validate documentation
+        run: pnpm docs:validate
+
       - name: Validate architecture metadata
         run: pnpm architecture:validate
 
