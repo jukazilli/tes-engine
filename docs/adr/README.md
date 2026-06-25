@@ -27,10 +27,11 @@ Nao renumerar ADRs aceitos. Lacunas devem ser registradas, nao preenchidas artif
 | 019    | Runtime and migration role separation               | ACCEPTED | 2026-06-25    | Separar DDL/migracao do runtime da API.   | Nenhum   | [ADR-019](ADR-019-runtime-migration-role-separation.md) |
 | 020    | PostgreSQL RLS tenant isolation                     | ACCEPTED | 2026-06-25    | RLS com contexto tenant transacional.     | Nenhum   | [ADR-020](ADR-020-postgresql-rls-tenant-isolation.md)   |
 | 021    | Database readiness check                            | ACCEPTED | 2026-06-25    | Readiness consulta PostgreSQL runtime.    | Nenhum   | [ADR-021](ADR-021-database-readiness-check.md)          |
+| 022    | Opaque session authentication                       | ACCEPTED | 2026-06-25    | Sessao opaca, Argon2id, CSRF e e-mail.    | Nenhum   | [ADR-022](ADR-022-opaque-session-authentication.md)     |
 
 ## Lacunas e duplicidades
 
-- Lacunas: nenhuma entre 001 e 021.
+- Lacunas: nenhuma entre 001 e 022.
 - Duplicidades: nenhuma conhecida.
 - Arquivos sem numero: este README nao e ADR.
 

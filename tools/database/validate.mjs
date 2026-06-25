@@ -15,7 +15,17 @@ await runMain(async () => {
       ORDER BY c.relname
     `);
     const byName = new Map(tables.rows.map((row) => [row.tablename, row]));
-    for (const table of ['users', 'organizations', 'organization_memberships']) {
+    for (const table of [
+      'users',
+      'organizations',
+      'organization_memberships',
+      'user_credentials',
+      'email_verification_tokens',
+      'password_reset_tokens',
+      'user_sessions',
+      'login_attempts',
+      'email_delivery_events',
+    ]) {
       if (!byName.has(table)) {
         throw new Error(`Missing table app.${table}`);
       }
@@ -46,12 +56,13 @@ await runMain(async () => {
       `
       SELECT has_schema_privilege($1, 'app', 'USAGE') AS schema_usage,
         has_table_privilege($1, 'app.organizations', 'SELECT,INSERT,UPDATE,DELETE') AS org_dml,
-        has_function_privilege($1, 'app_private.current_organization_id()', 'EXECUTE') AS org_fn
+        has_function_privilege($1, 'app_private.current_organization_id()', 'EXECUTE') AS org_fn,
+        has_function_privilege($1, 'app_private.active_organization_for_user(uuid)', 'EXECUTE') AS auth_fn
       `,
       [appUser],
     );
     const grant = grants.rows[0];
-    if (!grant.schema_usage || !grant.org_dml || !grant.org_fn) {
+    if (!grant.schema_usage || !grant.org_dml || !grant.org_fn || !grant.auth_fn) {
       throw new Error(`Runtime role ${appUser} is missing required privileges.`);
     }
 

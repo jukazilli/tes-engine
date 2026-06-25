@@ -162,10 +162,10 @@ export async function grantRuntimeRole(pool) {
       format('GRANT USAGE ON SCHEMA app_private TO %I', $1::text),
       format('GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA app TO %I', $1::text),
       format('GRANT USAGE, SELECT, UPDATE ON ALL SEQUENCES IN SCHEMA app TO %I', $1::text),
-      format('GRANT EXECUTE ON FUNCTION app_private.current_organization_id() TO %I', $1::text),
-      format('GRANT EXECUTE ON FUNCTION app_private.current_user_id() TO %I', $1::text),
+      format('GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA app_private TO %I', $1::text),
       format('ALTER DEFAULT PRIVILEGES IN SCHEMA app GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO %I', $1::text),
-      format('ALTER DEFAULT PRIVILEGES IN SCHEMA app GRANT USAGE, SELECT, UPDATE ON SEQUENCES TO %I', $1::text)
+      format('ALTER DEFAULT PRIVILEGES IN SCHEMA app GRANT USAGE, SELECT, UPDATE ON SEQUENCES TO %I', $1::text),
+      format('ALTER DEFAULT PRIVILEGES IN SCHEMA app_private GRANT EXECUTE ON FUNCTIONS TO %I', $1::text)
     ] AS statements
     `,
     [appUser],

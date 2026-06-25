@@ -12,6 +12,28 @@ export interface ApiEnvironment {
   CORS_ORIGINS: string;
   APP_VERSION: string;
   OPENAPI_ENABLED: boolean;
+  APP_WEB_URL: string;
+  SESSION_COOKIE_NAME: string;
+  SESSION_TTL_SECONDS: number;
+  SESSION_SECURE_COOKIE: boolean;
+  SESSION_SAME_SITE: 'lax' | 'strict' | 'none';
+  CSRF_HEADER_NAME: string;
+  EMAIL_VERIFICATION_TTL_SECONDS: number;
+  PASSWORD_RESET_TTL_SECONDS: number;
+  AUTH_LOGIN_LIMIT: number;
+  AUTH_LOGIN_WINDOW_SECONDS: number;
+  AUTH_EMAIL_LIMIT: number;
+  AUTH_EMAIL_WINDOW_SECONDS: number;
+  EMAIL_PROVIDER: 'smtp' | 'resend' | 'fake';
+  EMAIL_FROM_NAME: string;
+  EMAIL_FROM_ADDRESS: string;
+  SMTP_HOST: string;
+  SMTP_PORT: number;
+  SMTP_SECURE: boolean;
+  SMTP_USER?: string;
+  SMTP_PASSWORD?: string;
+  RESEND_API_KEY?: string;
+  RESEND_FROM_ADDRESS?: string;
   DATABASE_URL: string;
   DATABASE_POOL_MIN: number;
   DATABASE_POOL_MAX: number;
@@ -38,5 +60,35 @@ export interface AppConfig {
   corsOrigins: string[];
   version: string;
   openapiEnabled: boolean;
+  appWebUrl: string;
+  auth: AuthConfig;
+  email: EmailConfig;
   database: DatabaseConfig;
+}
+
+export interface AuthConfig {
+  sessionCookieName: string;
+  sessionTtlSeconds: number;
+  sessionSecureCookie: boolean;
+  sessionSameSite: 'lax' | 'strict' | 'none';
+  csrfHeaderName: string;
+  emailVerificationTtlSeconds: number;
+  passwordResetTtlSeconds: number;
+  loginLimit: number;
+  loginWindowSeconds: number;
+  emailLimit: number;
+  emailWindowSeconds: number;
+}
+
+export interface EmailConfig {
+  provider: 'smtp' | 'resend' | 'fake';
+  fromName: string;
+  fromAddress: string;
+  smtpHost: string;
+  smtpPort: number;
+  smtpSecure: boolean;
+  smtpUser?: string;
+  smtpPassword?: string;
+  resendApiKey?: string;
+  resendFromAddress?: string;
 }

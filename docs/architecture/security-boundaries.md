@@ -18,6 +18,12 @@ Status: ACCEPTED
 Um threat model completo deve detalhar autenticacao, autorizacao, upload, isolamento tenant,
 retencao, auditoria, exportacao e integracoes externas.
 
+Autenticacao atual:
+
+- [Authentication and sessions](authentication-and-sessions.md)
+- [Email delivery](email-delivery.md)
+- [Authentication security](../security/authentication-security.md)
+
 Documentos relacionados:
 
 - [Contexto](system-context.md)

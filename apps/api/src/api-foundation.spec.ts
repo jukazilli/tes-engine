@@ -93,7 +93,20 @@ describe('API foundation', () => {
     expect(response.body.paths).toHaveProperty('/api/health');
     expect(response.body.paths).toHaveProperty('/api/health/live');
     expect(response.body.paths).toHaveProperty('/api/health/ready');
+    expect(response.body.paths).toHaveProperty('/api/auth/register');
+    expect(response.body.paths).toHaveProperty('/api/auth/resend-verification');
+    expect(response.body.paths).toHaveProperty('/api/auth/verify-email');
+    expect(response.body.paths).toHaveProperty('/api/auth/login');
+    expect(response.body.paths).toHaveProperty('/api/auth/me');
+    expect(response.body.paths).toHaveProperty('/api/auth/csrf');
+    expect(response.body.paths).toHaveProperty('/api/auth/logout');
+    expect(response.body.paths).toHaveProperty('/api/auth/logout-all');
+    expect(response.body.paths).toHaveProperty('/api/auth/sessions');
+    expect(response.body.paths).toHaveProperty('/api/auth/sessions/{sessionId}');
+    expect(response.body.paths).toHaveProperty('/api/auth/forgot-password');
+    expect(response.body.paths).toHaveProperty('/api/auth/reset-password');
     expect(response.body.components.schemas).toHaveProperty('HealthResponseDto');
+    expect(response.body.components.schemas).toHaveProperty('AuthLoginResponseDto');
     expect(response.body.components.schemas).toHaveProperty('ApiErrorResponseDto');
   });
 

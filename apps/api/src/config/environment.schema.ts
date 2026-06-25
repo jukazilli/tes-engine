@@ -63,6 +63,54 @@ export const environmentSchema = Joi.object<ApiEnvironment>({
     .try(Joi.boolean(), Joi.string().valid('true', 'false', 'TRUE', 'FALSE'))
     .custom((value: unknown) => parseBoolean(value))
     .required(),
+  APP_WEB_URL: Joi.string()
+    .uri({ scheme: ['http', 'https'] })
+    .required(),
+  SESSION_COOKIE_NAME: Joi.string()
+    .pattern(/^[A-Za-z0-9_-]+$/)
+    .required(),
+  SESSION_TTL_SECONDS: Joi.number().integer().min(300).max(604_800).required(),
+  SESSION_SECURE_COOKIE: Joi.alternatives()
+    .try(Joi.boolean(), Joi.string().valid('true', 'false', 'TRUE', 'FALSE'))
+    .custom((value: unknown) => parseBoolean(value))
+    .required(),
+  SESSION_SAME_SITE: Joi.string().valid('lax', 'strict', 'none').required(),
+  CSRF_HEADER_NAME: Joi.string().min(1).required(),
+  EMAIL_VERIFICATION_TTL_SECONDS: Joi.number().integer().min(300).max(604_800).required(),
+  PASSWORD_RESET_TTL_SECONDS: Joi.number().integer().min(300).max(86_400).required(),
+  AUTH_LOGIN_LIMIT: Joi.number().integer().min(1).max(100).required(),
+  AUTH_LOGIN_WINDOW_SECONDS: Joi.number().integer().min(60).max(86_400).required(),
+  AUTH_EMAIL_LIMIT: Joi.number().integer().min(1).max(100).required(),
+  AUTH_EMAIL_WINDOW_SECONDS: Joi.number().integer().min(60).max(86_400).required(),
+  EMAIL_PROVIDER: Joi.string().valid('smtp', 'resend', 'fake').required(),
+  EMAIL_FROM_NAME: Joi.string().min(1).required(),
+  EMAIL_FROM_ADDRESS: Joi.string().email({ tlds: false }).required(),
+  SMTP_HOST: Joi.when('EMAIL_PROVIDER', {
+    is: 'smtp',
+    then: Joi.string().hostname().required(),
+    otherwise: Joi.string().allow('').optional(),
+  }),
+  SMTP_PORT: Joi.when('EMAIL_PROVIDER', {
+    is: 'smtp',
+    then: Joi.number().integer().min(1).max(65535).required(),
+    otherwise: Joi.number().integer().min(1).max(65535).optional(),
+  }),
+  SMTP_SECURE: Joi.alternatives()
+    .try(Joi.boolean(), Joi.string().valid('true', 'false', 'TRUE', 'FALSE', ''))
+    .custom((value: unknown) => (value === '' ? false : parseBoolean(value)))
+    .required(),
+  SMTP_USER: Joi.string().allow('').optional(),
+  SMTP_PASSWORD: Joi.string().allow('').optional(),
+  RESEND_API_KEY: Joi.when('EMAIL_PROVIDER', {
+    is: 'resend',
+    then: Joi.string().min(1).required(),
+    otherwise: Joi.string().allow('').optional(),
+  }),
+  RESEND_FROM_ADDRESS: Joi.when('EMAIL_PROVIDER', {
+    is: 'resend',
+    then: Joi.string().email({ tlds: false }).required(),
+    otherwise: Joi.string().allow('').optional(),
+  }),
   DATABASE_URL: Joi.string()
     .uri({ scheme: ['postgresql', 'postgres'] })
     .required(),
@@ -93,6 +141,28 @@ export function validateEnvironment(input: Record<string, unknown>): ApiEnvironm
     CORS_ORIGINS: value.CORS_ORIGINS,
     APP_VERSION: value.APP_VERSION,
     OPENAPI_ENABLED: parseBoolean(value.OPENAPI_ENABLED),
+    APP_WEB_URL: value.APP_WEB_URL,
+    SESSION_COOKIE_NAME: value.SESSION_COOKIE_NAME,
+    SESSION_TTL_SECONDS: Number(value.SESSION_TTL_SECONDS),
+    SESSION_SECURE_COOKIE: parseBoolean(value.SESSION_SECURE_COOKIE),
+    SESSION_SAME_SITE: value.SESSION_SAME_SITE,
+    CSRF_HEADER_NAME: value.CSRF_HEADER_NAME,
+    EMAIL_VERIFICATION_TTL_SECONDS: Number(value.EMAIL_VERIFICATION_TTL_SECONDS),
+    PASSWORD_RESET_TTL_SECONDS: Number(value.PASSWORD_RESET_TTL_SECONDS),
+    AUTH_LOGIN_LIMIT: Number(value.AUTH_LOGIN_LIMIT),
+    AUTH_LOGIN_WINDOW_SECONDS: Number(value.AUTH_LOGIN_WINDOW_SECONDS),
+    AUTH_EMAIL_LIMIT: Number(value.AUTH_EMAIL_LIMIT),
+    AUTH_EMAIL_WINDOW_SECONDS: Number(value.AUTH_EMAIL_WINDOW_SECONDS),
+    EMAIL_PROVIDER: value.EMAIL_PROVIDER,
+    EMAIL_FROM_NAME: value.EMAIL_FROM_NAME,
+    EMAIL_FROM_ADDRESS: value.EMAIL_FROM_ADDRESS,
+    SMTP_HOST: value.SMTP_HOST,
+    SMTP_PORT: Number(value.SMTP_PORT),
+    SMTP_SECURE: parseBoolean(value.SMTP_SECURE),
+    SMTP_USER: value.SMTP_USER,
+    SMTP_PASSWORD: value.SMTP_PASSWORD,
+    RESEND_API_KEY: value.RESEND_API_KEY,
+    RESEND_FROM_ADDRESS: value.RESEND_FROM_ADDRESS,
     DATABASE_URL: value.DATABASE_URL,
     DATABASE_POOL_MIN: Number(value.DATABASE_POOL_MIN),
     DATABASE_POOL_MAX: Number(value.DATABASE_POOL_MAX),
@@ -103,7 +173,11 @@ export function validateEnvironment(input: Record<string, unknown>): ApiEnvironm
 }
 
 export function validateRuntimeEnvironment(input: Record<string, unknown>): ApiEnvironment {
-  return validateEnvironment({ ...input, ...process.env });
+  const value = validateEnvironment({ ...input, ...process.env });
+  if (value.EMAIL_PROVIDER === 'fake' && !['test', 'development'].includes(value.NODE_ENV)) {
+    throw new Error('Invalid API environment configuration: EMAIL_PROVIDER=fake is not allowed.');
+  }
+  return value;
 }
 
 export { parseCorsOrigins };

@@ -26,6 +26,9 @@ Status: ACCEPTED
 | 005a   | [Typecheck quality gate](005a-typecheck-quality-gate.md)               | Concluido |
 | 006    | [API foundation, tentativa 1](006-attempt-1-api-foundation-blocked.md) | Bloqueado |
 | 006    | [API foundation](006-api-foundation.md)                                | Concluido |
+| 007    | [Database foundation](007-database-foundation.md)                      | Concluido |
+| 008    | [Authentication, tentativa 1](008-attempt-1-authentication-partial.md) | Parcial   |
+| 008.1  | [Authentication](008-authentication.md)                                | Concluido |
 
 Artefatos relacionados:
 

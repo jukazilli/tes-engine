@@ -72,9 +72,13 @@ Campos redigidos:
 - `currentPassword`;
 - `newPassword`;
 - `token`;
+- `sessionToken`;
+- `csrfToken`;
 - `accessToken`;
 - `refreshToken`;
 - `secret`;
+- `resendApiKey`;
+- `smtpPassword`;
 - `clientSecret`;
 - `xml`;
 - `xmlContent`;

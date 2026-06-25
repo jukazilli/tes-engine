@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from '@tes-engine/backend/database';
 import { LoggerModule } from 'nestjs-pino';
 import { AppController } from './app.controller';
+import { AuthModule } from '../auth/auth.module';
 import { createLoggerParams } from '../common/logging/logging.config';
 import { CorrelationIdService } from '../common/middleware/correlation-id.service';
 import { appConfig } from '../config/app-config';
@@ -26,6 +27,7 @@ import { HealthModule } from '../health/health.module';
       inject: [appConfig.KEY],
       useFactory: (config: AppConfig) => config.database,
     }),
+    AuthModule,
     HealthModule,
   ],
   controllers: [AppController],

@@ -24,7 +24,6 @@ Status: ACCEPTED
 - Wizard funcional.
 - Exportacao real.
 
-
 ## Evolucoes futuras
 
 - Multi-tenant fisico.
