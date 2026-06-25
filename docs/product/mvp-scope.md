@@ -23,7 +23,7 @@ Status: ACCEPTED
 - Motor fiscal.
 - Wizard funcional.
 - Exportacao real.
-- Gravacao direta na SF4.
+
 
 ## Evolucoes futuras
 
@@ -33,6 +33,7 @@ Status: ACCEPTED
 - Layout MILE inicial.
 - Golden files fiscais.
 - Threat model completo.
+- Gravacao direta na SF4.
 
 Documentos relacionados:
 
