@@ -5,7 +5,8 @@
     "projectType":  "library",
     "tags":  [
                  "scope:backend",
-                 "type:util"
+                 "type:util",
+                 "platform:node"
              ],
     "targets":  {
                     "build":  {

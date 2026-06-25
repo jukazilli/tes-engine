@@ -5,7 +5,8 @@
     "projectType":  "library",
     "tags":  [
                  "scope:frontend",
-                 "type:ui"
+                 "type:ui",
+                 "platform:browser"
              ],
     "targets":  {
                     "build":  {

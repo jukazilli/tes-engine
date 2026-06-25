@@ -1,7 +1,9 @@
-import { sharedDomainTypes } from './shared-domain-types';
+import { EntityId } from './shared-domain-types';
 
-describe('sharedDomainTypes', () => {
-  it('should work', () => {
-    expect(sharedDomainTypes()).toEqual('shared-domain-types');
+describe('EntityId', () => {
+  it('represents a generic entity identifier', () => {
+    const id: EntityId = 'entity-1';
+
+    expect(id).toEqual('entity-1');
   });
 });

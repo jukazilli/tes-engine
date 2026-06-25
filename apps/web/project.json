@@ -6,7 +6,8 @@
     "sourceRoot":  "apps/web/src",
     "tags":  [
                  "scope:frontend",
-                 "type:app"
+                 "type:app",
+                 "platform:browser"
              ],
     "targets":  {
                     "build":  {

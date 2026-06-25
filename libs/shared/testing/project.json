@@ -5,7 +5,8 @@
     "projectType":  "library",
     "tags":  [
                  "scope:shared",
-                 "type:util"
+                 "type:testing",
+                 "platform:agnostic"
              ],
     "targets":  {
                     "build":  {

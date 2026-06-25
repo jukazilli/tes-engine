@@ -5,7 +5,9 @@
     "projectType":  "application",
     "tags":  [
                  "scope:backend",
-                 "type:app"
+                 "type:app",
+                 "platform:node",
+                 "runtime:worker"
              ],
     "targets":  {
                     "build":  {

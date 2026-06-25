@@ -1,3 +1,3 @@
-export function backendCommon(): string {
-  return 'backend-common';
+export function normalizeServiceName(service: string): string {
+  return service.trim().toLowerCase();
 }

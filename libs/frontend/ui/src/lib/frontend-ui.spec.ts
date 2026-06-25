@@ -1,7 +1,7 @@
-import { frontendUi } from './frontend-ui';
+import { frontendUiMarker } from './frontend-ui';
 
-describe('frontendUi', () => {
-  it('should work', () => {
-    expect(frontendUi()).toEqual('frontend-ui');
+describe('frontendUiMarker', () => {
+  it('identifies the initial UI library boundary', () => {
+    expect(frontendUiMarker.library).toEqual('frontend-ui');
   });
 });

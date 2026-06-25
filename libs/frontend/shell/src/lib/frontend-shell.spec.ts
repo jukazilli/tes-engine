@@ -1,7 +1,7 @@
-import { frontendShell } from './frontend-shell';
+import { frontendShellMarker } from './frontend-shell';
 
-describe('frontendShell', () => {
-  it('should work', () => {
-    expect(frontendShell()).toEqual('frontend-shell');
+describe('frontendShellMarker', () => {
+  it('identifies the initial shell library boundary', () => {
+    expect(frontendShellMarker.library).toEqual('frontend-shell');
   });
 });

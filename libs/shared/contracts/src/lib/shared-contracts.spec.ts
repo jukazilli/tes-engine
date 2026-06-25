@@ -1,7 +1,12 @@
-import { sharedContracts } from './shared-contracts';
+import { HealthResponse } from './shared-contracts';
 
-describe('sharedContracts', () => {
-  it('should work', () => {
-    expect(sharedContracts()).toEqual('shared-contracts');
+describe('HealthResponse', () => {
+  it('represents the health check contract', () => {
+    const response: HealthResponse = {
+      status: 'ok',
+      service: 'tes-engine-api',
+    };
+
+    expect(response.status).toEqual('ok');
   });
 });

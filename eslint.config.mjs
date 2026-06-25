@@ -58,14 +58,20 @@ export default [
                             sourceTag: "type:contracts",
                             onlyDependOnLibsWithTags: [
                                 "type:contracts",
-                                "type:util"
+                                "type:domain",
+                                "type:testing"
+                            ]
+                        },
+                        {
+                            sourceTag: "type:ui",
+                            notDependOnLibsWithTags: [
+                                "type:app"
                             ]
                         },
                         {
                             sourceTag: "type:util",
                             notDependOnLibsWithTags: [
                                 "type:app",
-                                "type:feature",
                                 "type:ui"
                             ]
                         }
@@ -87,5 +93,82 @@ export default [
         ],
         // Override or add rules here
         rules: {}
+    },
+    {
+        files: [
+            "libs/shared/**/*.ts",
+            "libs/engines/**/*.ts"
+        ],
+        rules: {
+            "no-restricted-imports": [
+                "error",
+                {
+                    patterns: [
+                        {
+                            group: [
+                                "@angular/*",
+                                "@po-ui/*",
+                                "@nestjs/*"
+                            ],
+                            message: "Bibliotecas agnosticas e engines nao podem depender de Angular, PO UI ou NestJS."
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        files: [
+            "apps/web/**/*.ts",
+            "libs/frontend/**/*.ts"
+        ],
+        rules: {
+            "no-restricted-imports": [
+                "error",
+                {
+                    paths: [
+                        "fs",
+                        "path",
+                        "crypto",
+                        "http",
+                        "https",
+                        "stream",
+                        "child_process",
+                        "process",
+                        "os"
+                    ],
+                    patterns: [
+                        {
+                            group: [
+                                "node:*"
+                            ],
+                            message: "Projetos browser nao podem importar APIs exclusivas de Node.js."
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        files: [
+            "apps/api/**/*.ts",
+            "apps/worker/**/*.ts",
+            "libs/backend/**/*.ts"
+        ],
+        rules: {
+            "no-restricted-imports": [
+                "error",
+                {
+                    patterns: [
+                        {
+                            group: [
+                                "@po-ui/*"
+                            ],
+                            message: "Projetos Node.js nao podem depender de PO UI."
+                        }
+                    ]
+                }
+            ]
+        }
     }
 ];

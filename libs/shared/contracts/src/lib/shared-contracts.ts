@@ -1,3 +1,4 @@
-export function sharedContracts(): string {
-  return 'shared-contracts';
+export interface HealthResponse {
+  status: 'ok';
+  service: string;
 }

@@ -1,7 +1,10 @@
-import { engineCore } from './engine-core';
+import { getEngineCoreInfo } from './engine-core';
 
-describe('engineCore', () => {
-  it('should work', () => {
-    expect(engineCore()).toEqual('engine-core');
+describe('getEngineCoreInfo', () => {
+  it('exposes a framework independent marker', () => {
+    expect(getEngineCoreInfo()).toEqual({
+      name: 'tes-engine-core',
+      frameworkIndependent: true,
+    });
   });
 });
