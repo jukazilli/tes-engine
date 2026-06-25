@@ -24,10 +24,32 @@ async function visibleOrganizations(pool, organizationId, userId) {
   }
 }
 
+async function visibleCompanies(pool, organizationId, userId) {
+  const client = await pool.connect();
+  try {
+    await client.query('BEGIN');
+    await client.query("SELECT set_config('app.current_organization_id', $1, true)", [
+      organizationId,
+    ]);
+    await client.query("SELECT set_config('app.current_user_id', $1, true)", [userId]);
+    const result = await client.query('SELECT id FROM app.companies ORDER BY id');
+    await client.query('COMMIT');
+    return result.rows.map((row) => row.id);
+  } catch (error) {
+    await client.query('ROLLBACK');
+    throw error;
+  } finally {
+    client.release();
+  }
+}
+
 await runMain(async () => {
   const admin = createMigrationPool();
   const runtime = createRuntimePool();
   try {
+    await admin.query('DELETE FROM app.companies WHERE organization_id = ANY($1::uuid[])', [
+      [orgA, orgB],
+    ]);
     await admin.query(
       'DELETE FROM app.organization_memberships WHERE organization_id = ANY($1::uuid[]) OR user_id = ANY($2::uuid[])',
       [
@@ -49,6 +71,10 @@ await runMain(async () => {
       "INSERT INTO app.organization_memberships (organization_id, user_id, status, joined_at) VALUES ($1, $2, 'ACTIVE', now()), ($3, $4, 'ACTIVE', now())",
       [orgA, userA, orgB, userB],
     );
+    await admin.query(
+      "INSERT INTO app.companies (id, organization_id, legal_name, tax_id_root, tax_regime, status) VALUES ('aaaaaaaa-2222-4aaa-8aaa-aaaaaaaaaaaa', $1, 'RLS Company A', '12345678', 'LUCRO_REAL', 'ACTIVE'), ('bbbbbbbb-2222-4bbb-8bbb-bbbbbbbbbbbb', $2, 'RLS Company B', '87654321', 'LUCRO_REAL', 'ACTIVE')",
+      [orgA, orgB],
+    );
 
     const withoutContext = await runtime.query(
       'SELECT id FROM app.organizations WHERE id = ANY($1::uuid[])',
@@ -67,6 +93,17 @@ await runMain(async () => {
       visibleB[0] !== orgB
     ) {
       throw new Error('RLS tenant isolation returned unexpected organization visibility.');
+    }
+
+    const companiesA = await visibleCompanies(runtime, orgA, userA);
+    const companiesB = await visibleCompanies(runtime, orgB, userB);
+    if (
+      companiesA.length !== 1 ||
+      companiesA[0] !== 'aaaaaaaa-2222-4aaa-8aaa-aaaaaaaaaaaa' ||
+      companiesB.length !== 1 ||
+      companiesB[0] !== 'bbbbbbbb-2222-4bbb-8bbb-bbbbbbbbbbbb'
+    ) {
+      throw new Error('RLS tenant isolation returned unexpected company visibility.');
     }
 
     const invalidContext = await visibleOrganizations(runtime, 'not-a-uuid', userA);
@@ -95,6 +132,9 @@ await runMain(async () => {
 
     console.log('Database RLS test passed.');
   } finally {
+    await admin.query('DELETE FROM app.companies WHERE organization_id = ANY($1::uuid[])', [
+      [orgA, orgB],
+    ]);
     await admin.query(
       'DELETE FROM app.organization_memberships WHERE organization_id = ANY($1::uuid[]) OR user_id = ANY($2::uuid[])',
       [

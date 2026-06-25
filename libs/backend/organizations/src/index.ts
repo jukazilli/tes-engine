@@ -5,3 +5,5 @@ export * from './lib/decorators/current-organization';
 export * from './lib/decorators/require-permissions';
 export * from './lib/domain/permission';
 export * from './lib/domain/role';
+export * from './lib/guards/organization-context.guard';
+export * from './lib/guards/permissions.guard';

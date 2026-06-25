@@ -1,7 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { CompaniesModule } from '@tes-engine/backend/companies';
 import { DatabaseModule } from '@tes-engine/backend/database';
 import { OrganizationsModule } from '@tes-engine/backend/organizations';
+import { ProtheusEnvironmentsModule } from '@tes-engine/backend/protheus-environments';
 import { LoggerModule } from 'nestjs-pino';
 import { AppController } from './app.controller';
 import { AuthModule } from '../auth/auth.module';
@@ -30,6 +32,8 @@ import { HealthModule } from '../health/health.module';
     }),
     AuthModule,
     OrganizationsModule,
+    CompaniesModule,
+    ProtheusEnvironmentsModule,
     HealthModule,
   ],
   controllers: [AppController],

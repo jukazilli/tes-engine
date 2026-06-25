@@ -1,4 +1,4 @@
-import { HealthResponse } from './shared-contracts';
+import { HealthResponse, toPoSelectOptions } from './shared-contracts';
 
 describe('HealthResponse', () => {
   it('represents the health check contract', () => {
@@ -12,5 +12,11 @@ describe('HealthResponse', () => {
     };
 
     expect(response.status).toEqual('ok');
+  });
+
+  it('adapts reference options to PO UI without using labels as values', () => {
+    expect(toPoSelectOptions([{ code: 'LUCRO_REAL', label: 'Lucro Real', active: true }])).toEqual([
+      { label: 'Lucro Real', value: 'LUCRO_REAL' },
+    ]);
   });
 });

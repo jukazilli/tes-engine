@@ -30,6 +30,12 @@ await runMain(async () => {
       'role_permissions',
       'membership_roles',
       'organization_invitations',
+      'companies',
+      'branches',
+      'branch_addresses',
+      'protheus_environments',
+      'branch_fiscal_profiles',
+      'protheus_parameter_mappings',
     ]) {
       if (!byName.has(table)) {
         throw new Error(`Missing table app.${table}`);
@@ -40,6 +46,12 @@ await runMain(async () => {
       'organization_memberships',
       'membership_roles',
       'organization_invitations',
+      'companies',
+      'branches',
+      'branch_addresses',
+      'protheus_environments',
+      'branch_fiscal_profiles',
+      'protheus_parameter_mappings',
     ]) {
       const row = byName.get(table);
       if (!row.rowsecurity || !row.force_row_security) {
@@ -58,6 +70,12 @@ await runMain(async () => {
       'organization_memberships.organization_memberships_tenant_isolation',
       'membership_roles.membership_roles_tenant_isolation',
       'organization_invitations.organization_invitations_tenant_isolation',
+      'companies.companies_tenant_isolation',
+      'branches.branches_tenant_isolation',
+      'branch_addresses.branch_addresses_tenant_isolation',
+      'protheus_environments.protheus_environments_tenant_isolation',
+      'branch_fiscal_profiles.branch_fiscal_profiles_tenant_isolation',
+      'protheus_parameter_mappings.protheus_parameter_mappings_tenant_isolation',
     ]) {
       if (!policyNames.has(policy)) {
         throw new Error(`Missing policy ${policy}`);

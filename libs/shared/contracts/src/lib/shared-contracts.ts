@@ -107,3 +107,51 @@ export interface AuthSessionResponse {
   userAgent?: string;
   status: string;
 }
+
+export interface PageResponse<T> {
+  items: T[];
+  nextCursor?: string;
+}
+
+export interface ReferenceOption {
+  code: string;
+  label: string;
+  description?: string;
+  active: boolean;
+  metadata?: Record<string, string | number | boolean | null>;
+}
+
+export type FieldControlType = 'SELECT' | 'COMBO' | 'INPUT' | 'ACTION';
+
+export interface ControlledFieldContract {
+  screen: string;
+  field: string;
+  technicalCode: string;
+  domainType: string;
+  controlType: FieldControlType;
+  optionsSource: string;
+  required: boolean;
+  editable: boolean;
+  mask?: string;
+  maxLength?: number;
+  validation: string;
+  persistedValue: string;
+  displayLabel: string;
+  helpText?: string;
+}
+
+export interface FiscalProfileFormOptions {
+  taxRegimes: ReferenceOption[];
+  nfeCrtOptions: ReferenceOption[];
+  icmsTaxpayerIndicators: ReferenceOption[];
+  sourceTypes: ReferenceOption[];
+}
+
+export interface PoSelectOptionLike {
+  label: string;
+  value: string;
+}
+
+export function toPoSelectOptions(options: ReferenceOption[]): PoSelectOptionLike[] {
+  return options.map((option) => ({ label: option.label, value: option.code }));
+}

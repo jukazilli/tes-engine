@@ -33,10 +33,19 @@ Nao renumerar ADRs aceitos. Lacunas devem ser registradas, nao preenchidas artif
 | 025    | Organization invitations                            | ACCEPTED | 2026-06-25    | Convites com token opaco e hash SHA-256.   | Nenhum   | [ADR-025](ADR-025-organization-invitations.md)                 |
 | 026    | Security definer authorization functions            | ACCEPTED | 2026-06-25    | Funcoes controladas para autorizacao.      | Nenhum   | [ADR-026](ADR-026-security-definer-authorization-functions.md) |
 | 027    | Last administrator protection                       | ACCEPTED | 2026-06-25    | Preservar ultimo ADMIN ativo.              | Nenhum   | [ADR-027](ADR-027-last-administrator-protection.md)            |
+| 028    | Modelo de empresas e filiais                        | ACCEPTED | 2026-06-25    | CNPJ raiz na empresa e CNPJ na filial.     | Nenhum   | [ADR-028](ADR-028-company-and-branch-model.md)                 |
+| 029    | Identificadores fiscais brasileiros                 | ACCEPTED | 2026-06-25    | Validar CNPJ e preservar inscricoes.       | Nenhum   | [ADR-029](ADR-029-brazilian-tax-identifiers.md)                |
+| 030    | Modelo de ambiente Protheus                         | ACCEPTED | 2026-06-25    | Ambientes sem credenciais Protheus.        | Nenhum   | [ADR-030](ADR-030-protheus-environment-model.md)               |
+| 031    | Paginacao por cursor                                | ACCEPTED | 2026-06-25    | Listagens com keyset pagination.           | Nenhum   | [ADR-031](ADR-031-keyset-pagination.md)                        |
+| 032    | Desativacao logica de master data                   | ACCEPTED | 2026-06-25    | Soft delete sem cascata automatica.        | Nenhum   | [ADR-032](ADR-032-master-data-deactivation.md)                 |
+| 033    | Valores de dominio controlado                       | ACCEPTED | 2026-06-25    | Enums por codigo, nao por label.           | Nenhum   | [ADR-033](ADR-033-controlled-domain-values.md)                 |
+| 034    | Vigencia do perfil fiscal da filial                 | ACCEPTED | 2026-06-25    | Perfil fiscal vigente por data.            | Nenhum   | [ADR-034](ADR-034-branch-fiscal-effective-dating.md)           |
+| 035    | Separacao entre regime, CRT e MV_CODREG             | ACCEPTED | 2026-06-25    | Conceitos fiscais separados.               | Nenhum   | [ADR-035](ADR-035-separation-tax-regime-crt-mv-codreg.md)      |
+| 036    | Contratos de controle de campos PO UI               | ACCEPTED | 2026-06-25    | Campo controlado nao usa input livre.      | Nenhum   | [ADR-036](ADR-036-po-ui-field-control-contracts.md)            |
 
 ## Lacunas e duplicidades
 
-- Lacunas: nenhuma entre 001 e 027.
+- Lacunas: nenhuma entre 001 e 036.
 - Duplicidades: nenhuma conhecida.
 - Arquivos sem numero: este README nao e ADR.
 

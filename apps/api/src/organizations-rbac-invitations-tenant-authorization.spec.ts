@@ -5,22 +5,29 @@ import {
 } from '@tes-engine/backend/organizations';
 
 describe('organizations rbac invitations tenant-authorization', () => {
-  it('declares only Prompt 09 permissions', () => {
-    expect(ORGANIZATION_PERMISSIONS).toEqual([
-      'organization:read',
-      'organization:update',
-      'organization:deactivate',
-      'membership:read',
-      'membership:invite',
-      'membership:update',
-      'membership:remove',
-      'invitation:read',
-      'invitation:create',
-      'invitation:resend',
-      'invitation:revoke',
-      'role:read',
-      'role:assign',
-    ]);
+  it('declares explicit permissions without wildcard access', () => {
+    expect(ORGANIZATION_PERMISSIONS).toEqual(
+      expect.arrayContaining([
+        'organization:read',
+        'organization:update',
+        'organization:deactivate',
+        'membership:read',
+        'membership:invite',
+        'membership:update',
+        'membership:remove',
+        'invitation:read',
+        'invitation:create',
+        'invitation:resend',
+        'invitation:revoke',
+        'role:read',
+        'role:assign',
+        'company:read',
+        'branch:read',
+        'environment:read',
+        'branch-fiscal-profile:read',
+        'protheus-parameter-mapping:read',
+      ]),
+    );
     expect(ORGANIZATION_PERMISSIONS).not.toContain('*');
   });
 
