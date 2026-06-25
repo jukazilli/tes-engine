@@ -8,6 +8,9 @@ Status: ACCEPTED
 - `pnpm test:email`
 - `pnpm auth:cleanup`
 
+Organizacoes, RBAC e convites possuem comandos proprios em
+[Organization testing](organization-testing.md).
+
 ## Local
 
 Use Mailpit em `http://localhost:8025` para validar confirmacao de e-mail e reset de senha. Nunca

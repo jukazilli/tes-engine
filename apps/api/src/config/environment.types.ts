@@ -24,6 +24,10 @@ export interface ApiEnvironment {
   AUTH_LOGIN_WINDOW_SECONDS: number;
   AUTH_EMAIL_LIMIT: number;
   AUTH_EMAIL_WINDOW_SECONDS: number;
+  ORGANIZATION_INVITATION_TTL_SECONDS: number;
+  ORGANIZATION_INVITATION_RESEND_LIMIT: number;
+  ORGANIZATION_INVITATION_RESEND_WINDOW_SECONDS: number;
+  ORGANIZATION_HEADER_NAME: string;
   EMAIL_PROVIDER: 'smtp' | 'resend' | 'fake';
   EMAIL_FROM_NAME: string;
   EMAIL_FROM_ADDRESS: string;
@@ -63,6 +67,7 @@ export interface AppConfig {
   appWebUrl: string;
   auth: AuthConfig;
   email: EmailConfig;
+  organizations: OrganizationsConfig;
   database: DatabaseConfig;
 }
 
@@ -91,4 +96,11 @@ export interface EmailConfig {
   smtpPassword?: string;
   resendApiKey?: string;
   resendFromAddress?: string;
+}
+
+export interface OrganizationsConfig {
+  invitationTtlSeconds: number;
+  invitationResendLimit: number;
+  invitationResendWindowSeconds: number;
+  organizationHeaderName: string;
 }

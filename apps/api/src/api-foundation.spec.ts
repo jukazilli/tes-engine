@@ -105,8 +105,28 @@ describe('API foundation', () => {
     expect(response.body.paths).toHaveProperty('/api/auth/sessions/{sessionId}');
     expect(response.body.paths).toHaveProperty('/api/auth/forgot-password');
     expect(response.body.paths).toHaveProperty('/api/auth/reset-password');
+    expect(response.body.paths).toHaveProperty('/api/organizations');
+    expect(response.body.paths).toHaveProperty('/api/organizations/{organizationId}');
+    expect(response.body.paths).toHaveProperty('/api/organizations/{organizationId}/deactivate');
+    expect(response.body.paths).toHaveProperty('/api/organizations/{organizationId}/members');
+    expect(response.body.paths).toHaveProperty(
+      '/api/organizations/{organizationId}/members/{membershipId}',
+    );
+    expect(response.body.paths).toHaveProperty(
+      '/api/organizations/{organizationId}/members/{membershipId}/roles',
+    );
+    expect(response.body.paths).toHaveProperty('/api/organizations/{organizationId}/invitations');
+    expect(response.body.paths).toHaveProperty(
+      '/api/organizations/{organizationId}/invitations/{invitationId}/resend',
+    );
+    expect(response.body.paths).toHaveProperty(
+      '/api/organizations/{organizationId}/invitations/{invitationId}',
+    );
+    expect(response.body.paths).toHaveProperty('/api/organization-invitations/preview');
+    expect(response.body.paths).toHaveProperty('/api/organization-invitations/accept');
     expect(response.body.components.schemas).toHaveProperty('HealthResponseDto');
     expect(response.body.components.schemas).toHaveProperty('AuthLoginResponseDto');
+    expect(response.body.components.schemas).toHaveProperty('OrganizationResponseDto');
     expect(response.body.components.schemas).toHaveProperty('ApiErrorResponseDto');
   });
 

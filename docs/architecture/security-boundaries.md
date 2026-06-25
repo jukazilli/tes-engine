@@ -24,6 +24,13 @@ Autenticacao atual:
 - [Email delivery](email-delivery.md)
 - [Authentication security](../security/authentication-security.md)
 
+Autorizacao tenant atual:
+
+- [Organizations and memberships](organizations-and-memberships.md)
+- [Organization context](organization-context.md)
+- [RBAC](rbac.md)
+- [Tenant authorization](../security/tenant-authorization.md)
+
 Documentos relacionados:
 
 - [Contexto](system-context.md)

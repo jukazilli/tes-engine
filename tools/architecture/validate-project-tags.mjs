@@ -33,6 +33,10 @@ const expectedProjects = {
     root: 'libs/backend/database',
     tags: ['scope:backend', 'type:data-access', 'platform:node'],
   },
+  'backend-organizations': {
+    root: 'libs/backend/organizations',
+    tags: ['scope:backend', 'type:feature', 'platform:node'],
+  },
   'shared-contracts': {
     root: 'libs/shared/contracts',
     tags: ['scope:shared', 'type:contracts', 'platform:agnostic'],
@@ -56,6 +60,7 @@ const expectedAliases = {
   '@tes-engine/frontend/ui': './libs/frontend/ui/src/index.ts',
   '@tes-engine/backend/common': './libs/backend/common/src/index.ts',
   '@tes-engine/backend/database': './libs/backend/database/src/index.ts',
+  '@tes-engine/backend/organizations': './libs/backend/organizations/src/index.ts',
   '@tes-engine/shared/contracts': './libs/shared/contracts/src/index.ts',
   '@tes-engine/shared/domain-types': './libs/shared/domain-types/src/index.ts',
   '@tes-engine/shared/testing': './libs/shared/testing/src/index.ts',

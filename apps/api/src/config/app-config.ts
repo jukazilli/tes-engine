@@ -28,6 +28,14 @@ export const appConfig = registerAs(
       emailLimit: Number(process.env.AUTH_EMAIL_LIMIT),
       emailWindowSeconds: Number(process.env.AUTH_EMAIL_WINDOW_SECONDS),
     },
+    organizations: {
+      invitationTtlSeconds: Number(process.env.ORGANIZATION_INVITATION_TTL_SECONDS),
+      invitationResendLimit: Number(process.env.ORGANIZATION_INVITATION_RESEND_LIMIT),
+      invitationResendWindowSeconds: Number(
+        process.env.ORGANIZATION_INVITATION_RESEND_WINDOW_SECONDS,
+      ),
+      organizationHeaderName: process.env.ORGANIZATION_HEADER_NAME ?? 'X-Organization-ID',
+    },
     email: {
       provider: (process.env.EMAIL_PROVIDER ?? 'smtp') as AppConfig['email']['provider'],
       fromName: process.env.EMAIL_FROM_NAME ?? 'TES Engine',

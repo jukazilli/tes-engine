@@ -1,0 +1,34 @@
+{
+  "name": "backend-organizations",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/backend/organizations/src",
+  "projectType": "library",
+  "tags": ["scope:backend", "type:feature", "platform:node"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/backend/organizations",
+        "main": "libs/backend/organizations/src/index.ts",
+        "tsConfig": "libs/backend/organizations/tsconfig.lib.json",
+        "assets": ["libs/backend/organizations/*.md"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/backend/organizations/jest.config.cts"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "outputs": [],
+      "options": {
+        "command": "tsc --noEmit -p libs/backend/organizations/tsconfig.lib.json"
+      }
+    }
+  }
+}

@@ -29,6 +29,7 @@ Status: ACCEPTED
 | 007    | [Database foundation](007-database-foundation.md)                      | Concluido |
 | 008    | [Authentication, tentativa 1](008-attempt-1-authentication-partial.md) | Parcial   |
 | 008.1  | [Authentication](008-authentication.md)                                | Concluido |
+| 009    | [Organizations and RBAC](009-organizations-rbac.md)                    | Concluido |
 
 Artefatos relacionados:
 

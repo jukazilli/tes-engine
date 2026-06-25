@@ -25,12 +25,22 @@ await runMain(async () => {
       'user_sessions',
       'login_attempts',
       'email_delivery_events',
+      'roles',
+      'permissions',
+      'role_permissions',
+      'membership_roles',
+      'organization_invitations',
     ]) {
       if (!byName.has(table)) {
         throw new Error(`Missing table app.${table}`);
       }
     }
-    for (const table of ['organizations', 'organization_memberships']) {
+    for (const table of [
+      'organizations',
+      'organization_memberships',
+      'membership_roles',
+      'organization_invitations',
+    ]) {
       const row = byName.get(table);
       if (!row.rowsecurity || !row.force_row_security) {
         throw new Error(`RLS/FORCE RLS is not enabled on app.${table}`);
@@ -46,6 +56,8 @@ await runMain(async () => {
     for (const policy of [
       'organizations.organizations_tenant_isolation',
       'organization_memberships.organization_memberships_tenant_isolation',
+      'membership_roles.membership_roles_tenant_isolation',
+      'organization_invitations.organization_invitations_tenant_isolation',
     ]) {
       if (!policyNames.has(policy)) {
         throw new Error(`Missing policy ${policy}`);
@@ -56,14 +68,31 @@ await runMain(async () => {
       `
       SELECT has_schema_privilege($1, 'app', 'USAGE') AS schema_usage,
         has_table_privilege($1, 'app.organizations', 'SELECT,INSERT,UPDATE,DELETE') AS org_dml,
+        has_table_privilege($1, 'app.roles', 'INSERT,UPDATE,DELETE') AS roles_write,
+        has_table_privilege($1, 'app.permissions', 'INSERT,UPDATE,DELETE') AS permissions_write,
+        has_table_privilege($1, 'app.role_permissions', 'INSERT,UPDATE,DELETE') AS role_permissions_write,
         has_function_privilege($1, 'app_private.current_organization_id()', 'EXECUTE') AS org_fn,
-        has_function_privilege($1, 'app_private.active_organization_for_user(uuid)', 'EXECUTE') AS auth_fn
+        has_function_privilege($1, 'app_private.active_organization_for_user(uuid)', 'EXECUTE') AS auth_fn,
+        has_function_privilege($1, 'app_private.organizations_for_user(uuid)', 'EXECUTE') AS orgs_for_user_fn,
+        has_function_privilege($1, 'app_private.can_access_organization(uuid, uuid)', 'EXECUTE') AS can_access_fn,
+        has_function_privilege($1, 'app_private.permissions_for_user(uuid, uuid)', 'EXECUTE') AS permissions_fn
       `,
       [appUser],
     );
     const grant = grants.rows[0];
-    if (!grant.schema_usage || !grant.org_dml || !grant.org_fn || !grant.auth_fn) {
+    if (
+      !grant.schema_usage ||
+      !grant.org_dml ||
+      !grant.org_fn ||
+      !grant.auth_fn ||
+      !grant.orgs_for_user_fn ||
+      !grant.can_access_fn ||
+      !grant.permissions_fn
+    ) {
       throw new Error(`Runtime role ${appUser} is missing required privileges.`);
+    }
+    if (grant.roles_write || grant.permissions_write || grant.role_permissions_write) {
+      throw new Error(`Runtime role ${appUser} can modify RBAC catalogs.`);
     }
 
     const role = await pool.query(

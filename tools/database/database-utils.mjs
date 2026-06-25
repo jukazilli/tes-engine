@@ -180,6 +180,27 @@ export async function grantRuntimeRole(pool) {
       }
     }
   }
+
+  const rbacCatalogRevokes = await pool.query(
+    `
+    SELECT array[
+      format('REVOKE INSERT, UPDATE, DELETE ON app.roles FROM %I', $1::text),
+      format('REVOKE INSERT, UPDATE, DELETE ON app.permissions FROM %I', $1::text),
+      format('REVOKE INSERT, UPDATE, DELETE ON app.role_permissions FROM %I', $1::text)
+    ] AS statements
+    `,
+    [appUser],
+  );
+
+  for (const statement of rbacCatalogRevokes.rows[0].statements) {
+    try {
+      await pool.query(statement);
+    } catch (error) {
+      if (!String(error.message).includes('does not exist')) {
+        throw error;
+      }
+    }
+  }
 }
 
 export async function runMain(main) {

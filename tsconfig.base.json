@@ -29,7 +29,8 @@
       "@tes-engine/shared-contracts": ["./libs/shared/contracts/src/index.ts"],
       "@tes-engine/shared-domain-types": ["./libs/shared/domain-types/src/index.ts"],
       "@tes-engine/shared-testing": ["./libs/shared/testing/src/index.ts"],
-      "@tes-engine/engine-core": ["./libs/engines/core/src/index.ts"]
+      "@tes-engine/engine-core": ["./libs/engines/core/src/index.ts"],
+      "@tes-engine/backend/organizations": ["./libs/backend/organizations/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

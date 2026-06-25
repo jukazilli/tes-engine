@@ -82,6 +82,16 @@ export const environmentSchema = Joi.object<ApiEnvironment>({
   AUTH_LOGIN_WINDOW_SECONDS: Joi.number().integer().min(60).max(86_400).required(),
   AUTH_EMAIL_LIMIT: Joi.number().integer().min(1).max(100).required(),
   AUTH_EMAIL_WINDOW_SECONDS: Joi.number().integer().min(60).max(86_400).required(),
+  ORGANIZATION_INVITATION_TTL_SECONDS: Joi.number().integer().min(300).max(2_592_000).required(),
+  ORGANIZATION_INVITATION_RESEND_LIMIT: Joi.number().integer().min(1).max(100).required(),
+  ORGANIZATION_INVITATION_RESEND_WINDOW_SECONDS: Joi.number()
+    .integer()
+    .min(60)
+    .max(86_400)
+    .required(),
+  ORGANIZATION_HEADER_NAME: Joi.string()
+    .pattern(/^[A-Za-z0-9-]+$/)
+    .required(),
   EMAIL_PROVIDER: Joi.string().valid('smtp', 'resend', 'fake').required(),
   EMAIL_FROM_NAME: Joi.string().min(1).required(),
   EMAIL_FROM_ADDRESS: Joi.string().email({ tlds: false }).required(),
@@ -153,6 +163,12 @@ export function validateEnvironment(input: Record<string, unknown>): ApiEnvironm
     AUTH_LOGIN_WINDOW_SECONDS: Number(value.AUTH_LOGIN_WINDOW_SECONDS),
     AUTH_EMAIL_LIMIT: Number(value.AUTH_EMAIL_LIMIT),
     AUTH_EMAIL_WINDOW_SECONDS: Number(value.AUTH_EMAIL_WINDOW_SECONDS),
+    ORGANIZATION_INVITATION_TTL_SECONDS: Number(value.ORGANIZATION_INVITATION_TTL_SECONDS),
+    ORGANIZATION_INVITATION_RESEND_LIMIT: Number(value.ORGANIZATION_INVITATION_RESEND_LIMIT),
+    ORGANIZATION_INVITATION_RESEND_WINDOW_SECONDS: Number(
+      value.ORGANIZATION_INVITATION_RESEND_WINDOW_SECONDS,
+    ),
+    ORGANIZATION_HEADER_NAME: value.ORGANIZATION_HEADER_NAME,
     EMAIL_PROVIDER: value.EMAIL_PROVIDER,
     EMAIL_FROM_NAME: value.EMAIL_FROM_NAME,
     EMAIL_FROM_ADDRESS: value.EMAIL_FROM_ADDRESS,

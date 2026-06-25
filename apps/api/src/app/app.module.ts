@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from '@tes-engine/backend/database';
+import { OrganizationsModule } from '@tes-engine/backend/organizations';
 import { LoggerModule } from 'nestjs-pino';
 import { AppController } from './app.controller';
 import { AuthModule } from '../auth/auth.module';
@@ -28,6 +29,7 @@ import { HealthModule } from '../health/health.module';
       useFactory: (config: AppConfig) => config.database,
     }),
     AuthModule,
+    OrganizationsModule,
     HealthModule,
   ],
   controllers: [AppController],
