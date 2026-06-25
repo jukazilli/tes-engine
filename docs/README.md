@@ -30,17 +30,18 @@ produto, dominio, governanca, execucao dos prompts e contribuicoes.
 7. [Linguagem ubiqua](domain/ubiquitous-language.md)
 8. [Registro de regras de negocio](domain/business-rules-register.md)
 9. [Indice de ADRs](adr/README.md)
-10. [Typechecking](development/typechecking.md)
-11. [Relatorios de execucao](execution/README.md)
+10. [Fundacao da API](architecture/api-foundation.md)
+11. [Typechecking](development/typechecking.md)
+12. [Relatorios de execucao](execution/README.md)
 
 ## Status atual
 
-Ultima etapa concluida: Prompt 05.1, correcao do gate de typecheck.
+Ultima etapa concluida: Prompt 06, fundacao tecnica da API NestJS.
 
-Etapa atual: baseline pronta para reexecutar o Prompt 06.
+Etapa atual: API preparada para modulos de negocio futuros.
 
-Proxima etapa prevista: Prompt 06, a ser definido pela sequencia de prompts sem antecipar ORM,
-autenticacao, banco da aplicacao ou funcionalidades fiscais.
+Proxima etapa prevista: Prompt 07, a ser definido pela sequencia de prompts sem antecipar ORM,
+autenticacao, banco da aplicacao ou funcionalidades fiscais fora do escopo.
 
 ## Arquitetura resumida
 

@@ -78,6 +78,7 @@ const markdownSet = new Set(
   markdownFiles.map((file) => toPosix(path.relative(workspaceRoot, file))),
 );
 const adrNumbers = new Map();
+const adrFiles = [];
 
 for (const file of markdownFiles) {
   const relative = toPosix(path.relative(workspaceRoot, file));
@@ -106,6 +107,7 @@ for (const file of markdownFiles) {
 
   const adrMatch = /^docs\/adr\/ADR-(\d{3})-.+\.md$/.exec(relative);
   if (adrMatch) {
+    adrFiles.push(relative);
     const current = adrNumbers.get(adrMatch[1]) ?? [];
     current.push(relative);
     adrNumbers.set(adrMatch[1], current);
@@ -164,6 +166,17 @@ for (const file of markdownFiles) {
 for (const [number, files] of adrNumbers.entries()) {
   if (files.length > 1) {
     errors.push(`ADR duplicado ${number}: ${files.join(', ')}`);
+  }
+}
+
+const adrIndexPath = path.join(workspaceRoot, 'docs', 'adr', 'README.md');
+if (existsSync(adrIndexPath)) {
+  const adrIndex = readFileSync(adrIndexPath, 'utf8');
+  for (const adrFile of adrFiles) {
+    const adrBasename = path.basename(adrFile);
+    if (!adrIndex.includes(`](${adrBasename})`)) {
+      errors.push(`docs/adr/README.md: ADR existente nao referenciado no indice: ${adrBasename}`);
+    }
   }
 }
 

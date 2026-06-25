@@ -25,6 +25,7 @@ Status: ACCEPTED
 | 005    | [Documentation governance](005-documentation-governance.md)            | Concluido |
 | 005a   | [Typecheck quality gate](005a-typecheck-quality-gate.md)               | Concluido |
 | 006    | [API foundation, tentativa 1](006-attempt-1-api-foundation-blocked.md) | Bloqueado |
+| 006    | [API foundation](006-api-foundation.md)                                | Concluido |
 
 Artefatos relacionados:
 

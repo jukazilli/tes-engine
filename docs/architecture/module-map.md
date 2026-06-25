@@ -5,7 +5,7 @@
 | App           | Tags                                                           | Responsabilidade                                                                       |
 | ------------- | -------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | `apps/web`    | `scope:frontend`, `type:app`, `platform:browser`               | SPA Angular com PO UI, shell inicial, menu, toolbar e rota inicial.                    |
-| `apps/api`    | `scope:backend`, `type:app`, `platform:node`                   | API NestJS com prefixo global `/api` e endpoint `GET /api/health`.                     |
+| `apps/api`    | `scope:backend`, `type:app`, `platform:node`                   | API NestJS com configuracao validada, logs estruturados, health, erros e OpenAPI.      |
 | `apps/worker` | `scope:backend`, `type:app`, `platform:node`, `runtime:worker` | Processo NestJS separado, sem porta HTTP publica, preparado para processamento futuro. |
 
 ## Bibliotecas

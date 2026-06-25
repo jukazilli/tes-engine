@@ -46,6 +46,7 @@ Servicos locais:
 - Web: `http://localhost:4200`
 - API: `http://localhost:3000/api`
 - Health check: `http://localhost:3000/api/health`
+- OpenAPI: `http://localhost:3000/api/docs`
 
 ## Qualidade
 
@@ -59,6 +60,7 @@ pnpm typecheck
 pnpm lint
 pnpm test
 pnpm build
+pnpm openapi:validate
 pnpm quality:fast
 pnpm quality
 pnpm run ci
@@ -72,8 +74,8 @@ pnpm graph
 ```
 
 `pnpm quality:fast` executa formatacao, documentacao, arquitetura, cobertura de typecheck, typecheck
-e lint. `pnpm quality` acrescenta testes e build. `pnpm run ci` executa o mesmo gate local. O CI usa
-a mesma base sem exigir Docker ou servicos locais.
+e lint. `pnpm quality` acrescenta testes, build e validacao OpenAPI. `pnpm run ci` executa o mesmo
+gate local. O CI usa a mesma base sem exigir Docker ou servicos locais.
 
 Ordem recomendada de leitura:
 
@@ -83,6 +85,7 @@ Ordem recomendada de leitura:
 4. [`docs/architecture/module-catalog.md`](docs/architecture/module-catalog.md)
 5. [`docs/domain/ubiquitous-language.md`](docs/domain/ubiquitous-language.md)
 6. [`docs/development/typechecking.md`](docs/development/typechecking.md)
+7. [`docs/architecture/api-foundation.md`](docs/architecture/api-foundation.md)
 
 ## Estrutura inicial
 
@@ -133,5 +136,5 @@ A governanca documental esta definida em
 
 ## Proximo passo
 
-O Prompt 05.1 corrige o gate de typecheck. O Prompt 06 deve ser reexecutado sem antecipar ORM,
-migrations, autenticacao ou funcionalidades fiscais fora do escopo definido.
+O Prompt 06 estabelece a fundacao tecnica da API. O Prompt 07 deve seguir a sequencia definida sem
+antecipar ORM, migrations, autenticacao ou funcionalidades fiscais fora do escopo definido.

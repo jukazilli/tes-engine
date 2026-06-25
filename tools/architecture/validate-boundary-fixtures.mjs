@@ -30,7 +30,7 @@ const fixtures = [
     relativePath: 'apps/api/src/__architecture_backend_shared.valid.ts',
     shouldPass: true,
     source:
-      "import { HealthResponse } from '@tes-engine/shared/contracts';\n\nconst response: HealthResponse = { status: 'ok', service: 'api' };\nvoid response;\n",
+      "import { HealthResponse } from '@tes-engine/shared/contracts';\n\nconst response: HealthResponse = {\n  status: 'ok',\n  service: 'api',\n  version: '0.1.0',\n  environment: 'test',\n  timestamp: '2026-01-01T00:00:00.000Z',\n  uptimeSeconds: 1,\n};\nvoid response;\n",
   },
   {
     name: 'backend-pode-depender-de-engine',
@@ -44,7 +44,7 @@ const fixtures = [
     relativePath: 'apps/web/src/__architecture_web_frontend_shared.valid.ts',
     shouldPass: true,
     source:
-      "import { frontendUiMarker } from '@tes-engine/frontend/ui';\nimport { HealthResponse } from '@tes-engine/shared/contracts';\n\nconst response: HealthResponse = { status: 'ok', service: frontendUiMarker.library };\nvoid response;\n",
+      "import { frontendUiMarker } from '@tes-engine/frontend/ui';\nimport { HealthResponse } from '@tes-engine/shared/contracts';\n\nconst response: HealthResponse = {\n  status: 'ok',\n  service: frontendUiMarker.library,\n  version: '0.1.0',\n  environment: 'test',\n  timestamp: '2026-01-01T00:00:00.000Z',\n  uptimeSeconds: 1,\n};\nvoid response;\n",
   },
 ];
 
