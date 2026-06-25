@@ -3,6 +3,7 @@ import { AppService } from './app.service';
 
 describe('AppService', () => {
   let service: AppService;
+  const originalNodeEnv = process.env.NODE_ENV;
 
   beforeAll(async () => {
     const app = await Test.createTestingModule({
@@ -10,6 +11,14 @@ describe('AppService', () => {
     }).compile();
 
     service = app.get<AppService>(AppService);
+  });
+
+  beforeEach(() => {
+    process.env.NODE_ENV = 'test';
+  });
+
+  afterAll(() => {
+    process.env.NODE_ENV = originalNodeEnv;
   });
 
   describe('getBootstrapStatus', () => {

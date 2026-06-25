@@ -14,7 +14,12 @@
     "test": "nx run-many -t test",
     "affected:lint": "nx affected -t eslint:lint lint",
     "affected:test": "nx affected -t test",
-    "graph": "nx graph"
+    "graph": "nx graph",
+    "infra:up": "powershell -ExecutionPolicy Bypass -File infrastructure/scripts/infra-up.ps1",
+    "infra:down": "powershell -ExecutionPolicy Bypass -File infrastructure/scripts/infra-down.ps1",
+    "infra:status": "powershell -ExecutionPolicy Bypass -File infrastructure/scripts/infra-status.ps1",
+    "infra:logs": "powershell -ExecutionPolicy Bypass -File infrastructure/scripts/infra-logs.ps1",
+    "infra:validate": "powershell -ExecutionPolicy Bypass -File infrastructure/scripts/infra-validate.ps1"
   },
   "private": true,
   "devDependencies": {
