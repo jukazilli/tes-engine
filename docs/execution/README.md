@@ -34,6 +34,7 @@ Status: ACCEPTED
 | 010a   | [Branch fiscal field contracts](010a-branch-fiscal-field-contracts.md)         | Concluido |
 | 011    | [Environment tax strategy](011-environment-tax-strategy.md)                    | Concluido |
 | 011.5a | [Research source governance](011.5a-research-source-governance.md)             | Concluido |
+| 011.5b | [Protheus technical catalog](011.5b-protheus-technical-catalog.md)             | Bloqueado |
 
 Artefatos relacionados:
 

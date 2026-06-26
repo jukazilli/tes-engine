@@ -3,9 +3,9 @@ id: ev-sempreju-sf4-catalog
 sourceId: src-sempreju-sf4
 questionId: rq-sf4-secondary-catalog
 kind: TECHNICAL_CATALOG_LOCATOR
-locator: SempreJU SF4 table page title and field list
+locator: SempreJU SF4 table page title, visible field list, and published update marker 2025-08-19
 observedAt: 2026-06-26T00:00:00Z
-summary: The page exposes an SF4 technical catalog with field names and labels, useful for discovery and comparison.
+summary: The page exposes an SF4 technical catalog with field names and labels, useful for discovery and comparison. It identified its published update marker as 2025-08-19 when checked.
 status: VERIFIED_WITH_LIMITATIONS
 limitations:
   - Third-party catalogs can lag or differ from a tenant environment dictionary.
