@@ -147,6 +147,35 @@ export interface FiscalProfileFormOptions {
   sourceTypes: ReferenceOption[];
 }
 
+export type TaxStrategyMode = 'LEGACY' | 'HYBRID' | 'FULL_CONFIGTRIB';
+export type TaxOwnerCode = 'LEGACY_TES' | 'CONFIGTRIB' | 'NOT_APPLICABLE';
+export type TaxDomainCode = 'ICMS' | 'ICMS_ST' | 'IPI' | 'PIS' | 'COFINS' | 'ISS' | 'DIFAL' | 'FCP';
+
+export interface TaxStrategyFormOptions {
+  modes: ReferenceOption[];
+  owners: ReferenceOption[];
+  taxDomains: ReferenceOption[];
+  sourceTypes: ReferenceOption[];
+}
+
+export interface TaxStrategyItemInput {
+  taxDomainCode: TaxDomainCode;
+  ownerCode: TaxOwnerCode;
+  notApplicableReason?: string;
+}
+
+export interface ValidationIssue {
+  code: string;
+  message: string;
+  metadata?: Record<string, string | number | boolean | null>;
+}
+
+export interface TaxStrategyValidationResult {
+  valid: boolean;
+  errors: ValidationIssue[];
+  warnings: ValidationIssue[];
+}
+
 export interface PoSelectOptionLike {
   label: string;
   value: string;

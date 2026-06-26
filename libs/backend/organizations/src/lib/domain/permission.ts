@@ -32,6 +32,13 @@ export const ORGANIZATION_PERMISSIONS = [
   'protheus-parameter-mapping:read',
   'protheus-parameter-mapping:create',
   'protheus-parameter-mapping:validate',
+  'tax-strategy:read',
+  'tax-strategy:create',
+  'tax-strategy:update',
+  'tax-strategy:submit-review',
+  'tax-strategy:confirm',
+  'tax-strategy:deactivate',
+  'tax-context:resolve',
 ] as const;
 
 export type OrganizationPermission = (typeof ORGANIZATION_PERMISSIONS)[number];

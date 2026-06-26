@@ -32,6 +32,7 @@ Status: ACCEPTED
 | 009    | [Organizations and RBAC](009-organizations-rbac.md)                            | Concluido |
 | 010    | [Companies, branches and environments](010-companies-branches-environments.md) | Concluido |
 | 010a   | [Branch fiscal field contracts](010a-branch-fiscal-field-contracts.md)         | Concluido |
+| 011    | [Environment tax strategy](011-environment-tax-strategy.md)                    | Concluido |
 
 Artefatos relacionados:
 

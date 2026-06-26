@@ -42,10 +42,15 @@ Nao renumerar ADRs aceitos. Lacunas devem ser registradas, nao preenchidas artif
 | 034    | Vigencia do perfil fiscal da filial                 | ACCEPTED | 2026-06-25    | Perfil fiscal vigente por data.            | Nenhum   | [ADR-034](ADR-034-branch-fiscal-effective-dating.md)           |
 | 035    | Separacao entre regime, CRT e MV_CODREG             | ACCEPTED | 2026-06-25    | Conceitos fiscais separados.               | Nenhum   | [ADR-035](ADR-035-separation-tax-regime-crt-mv-codreg.md)      |
 | 036    | Contratos de controle de campos PO UI               | ACCEPTED | 2026-06-25    | Campo controlado nao usa input livre.      | Nenhum   | [ADR-036](ADR-036-po-ui-field-control-contracts.md)            |
+| 037    | Modos de estrategia tributaria do ambiente          | ACCEPTED | 2026-06-25    | Modos LEGACY, HYBRID e FULL_CONFIGTRIB.    | Nenhum   | [ADR-037](ADR-037-environment-tax-strategy-modes.md)           |
+| 038    | Responsabilidade por tributo                        | ACCEPTED | 2026-06-25    | Owner por tributo com dominio controlado.  | Nenhum   | [ADR-038](ADR-038-per-tax-ownership.md)                        |
+| 039    | Estrategias tributarias com vigencia                | ACCEPTED | 2026-06-25    | Estrategias confirmadas por periodo.       | Nenhum   | [ADR-039](ADR-039-effective-dated-tax-strategies.md)           |
+| 040    | Snapshots confirmados de contexto tributario        | ACCEPTED | 2026-06-25    | Snapshot somente com dados confirmados.    | Nenhum   | [ADR-040](ADR-040-confirmed-tax-context-snapshots.md)          |
+| 041    | Bloqueio futuro de exportacao ConfigTrib            | ACCEPTED | 2026-06-25    | ConfigTrib exige cobertura futura.         | Nenhum   | [ADR-041](ADR-041-configtrib-export-blocking.md)               |
 
 ## Lacunas e duplicidades
 
-- Lacunas: nenhuma entre 001 e 036.
+- Lacunas: nenhuma entre 001 e 041.
 - Duplicidades: nenhuma conhecida.
 - Arquivos sem numero: este README nao e ADR.
 

@@ -34,7 +34,8 @@
       "@tes-engine/backend/companies": ["./libs/backend/companies/src/index.ts"],
       "@tes-engine/backend/protheus-environments": [
         "./libs/backend/protheus-environments/src/index.ts"
-      ]
+      ],
+      "@tes-engine/backend/tax-strategy": ["./libs/backend/tax-strategy/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

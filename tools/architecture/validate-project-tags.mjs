@@ -45,6 +45,10 @@ const expectedProjects = {
     root: 'libs/backend/protheus-environments',
     tags: ['scope:backend', 'type:feature', 'platform:node'],
   },
+  'backend-tax-strategy': {
+    root: 'libs/backend/tax-strategy',
+    tags: ['scope:backend', 'type:feature', 'platform:node'],
+  },
   'shared-contracts': {
     root: 'libs/shared/contracts',
     tags: ['scope:shared', 'type:contracts', 'platform:agnostic'],
@@ -71,6 +75,7 @@ const expectedAliases = {
   '@tes-engine/backend/organizations': './libs/backend/organizations/src/index.ts',
   '@tes-engine/backend/companies': './libs/backend/companies/src/index.ts',
   '@tes-engine/backend/protheus-environments': './libs/backend/protheus-environments/src/index.ts',
+  '@tes-engine/backend/tax-strategy': './libs/backend/tax-strategy/src/index.ts',
   '@tes-engine/shared/contracts': './libs/shared/contracts/src/index.ts',
   '@tes-engine/shared/domain-types': './libs/shared/domain-types/src/index.ts',
   '@tes-engine/shared/testing': './libs/shared/testing/src/index.ts',

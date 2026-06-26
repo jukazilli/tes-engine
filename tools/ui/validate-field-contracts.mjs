@@ -13,6 +13,12 @@ const controlledFields = new Set([
   'stateCode',
   'countryCode',
   'status',
+  'mode',
+  'taxDomainCode',
+  'ownerCode',
+  'sourceType',
+  'validFrom',
+  'validUntil',
 ]);
 
 if (!existsSync(matrixPath)) {
