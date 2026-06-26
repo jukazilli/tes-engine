@@ -1,0 +1,10 @@
+recordType: question
+id: rq-nfe-schema-authority
+question: Qual fonte oficial define schemas, grupos e regras estruturais da NF-e modelo 55 versao 4.00?
+domains: [NFE]
+askedBy: Prompt 11.5A
+askedAt: 2026-06-26
+status: VERIFIED
+requiredAuthority: [PRIMARY_NORMATIVE]
+acceptedSourceIds: [src-nfe-portal-schemas]
+notes: Official NF-e schema packages are normative for XML structure.

@@ -1,0 +1,14 @@
+recordType: claim
+id: ex-claim-sx3-prevails
+statement: A confirmed tenant environment SX3 snapshot must prevail for final field type, size, domain and validation.
+domains: [PROTHEUS_SX3]
+scope:
+  kind: TENANT_ENVIRONMENT
+  tenantEnvironmentId: example-future-sx3
+sourceIds: [ex-src-sx3-policy]
+evidenceIds: [ex-ev-sx3-policy]
+status: VERIFIED_WITH_LIMITATIONS
+limitations:
+  - Governance example only; no SX3 snapshot is collected by this prompt.
+reviewer: TES Engine example
+reviewedAt: 2026-06-26

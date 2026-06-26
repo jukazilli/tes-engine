@@ -1,0 +1,15 @@
+recordType: claim
+id: claim-configtrib-tes-relationship
+statement: TES and TES Inteligente remain relevant in Protheus with Configurador de Tributos, and Tipo de Operacao can participate in rule validation.
+domains: [CONFIGTRIB, PROTHEUS_SF4]
+scope:
+  kind: RELEASE
+  release: Protheus 12.1.2310+
+sourceIds: [src-totvs-configtrib-tes]
+evidenceIds: [ev-configtrib-tes]
+status: VERIFIED_WITH_LIMITATIONS
+effectiveFrom: 2026-06-26
+limitations:
+  - The claim is release-scoped to the TOTVS article scope and must be revisited if vendor documentation changes.
+reviewer: Codex
+reviewedAt: 2026-06-26

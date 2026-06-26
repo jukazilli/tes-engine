@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tes-engine.local/research/conflict.schema.json",
+  "title": "ResearchConflictRecord",
+  "type": "object",
+  "required": ["recordType", "id", "claimIds", "summary", "resolutionStatus", "resolution"],
+  "properties": {
+    "recordType": { "const": "conflict" },
+    "id": { "type": "string" },
+    "claimIds": { "type": "array", "items": { "type": "string" }, "minItems": 2 },
+    "summary": { "type": "string" },
+    "resolutionStatus": { "type": "string" },
+    "resolution": { "type": "string" },
+    "decidedBy": { "type": "string" },
+    "decidedAt": { "type": "string" }
+  }
+}

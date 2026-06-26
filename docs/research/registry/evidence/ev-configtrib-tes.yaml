@@ -1,0 +1,11 @@
+recordType: evidence
+id: ev-configtrib-tes
+sourceId: src-totvs-configtrib-tes
+questionId: rq-configtrib-tes
+kind: OFFICIAL_PAGE
+locator: TOTVS support article solution section
+observedAt: 2026-06-26T00:00:00Z
+summary: TOTVS states that TES remains relevant and Tipo de Operacao from TES Inteligente participates in validation for Configurador de Tributos rules.
+status: VERIFIED
+limitations:
+  - Support article scope is Protheus FIS from release 12.1.2310 onward.

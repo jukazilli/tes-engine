@@ -1,0 +1,10 @@
+recordType: claim
+id: claim-example-001
+statement: Short claim derived from evidence.
+domains: [RESEARCH_GOVERNANCE]
+scope:
+  kind: GLOBAL
+sourceIds: [src-example-001]
+evidenceIds: [ev-example-001]
+status: UNDER_REVIEW
+limitations: []

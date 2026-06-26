@@ -1,0 +1,11 @@
+recordType: evidence
+id: ex-ev-sempreju-locator
+sourceId: ex-src-sempreju-sf4
+questionId: ex-rq-sf4-authority
+kind: TECHNICAL_CATALOG_LOCATOR
+locator: SF4 page title and visible field list
+observedAt: 2026-06-26T00:00:00Z
+summary: The catalog identifies SF4 as a technical table with field locators useful for discovery.
+status: VERIFIED_WITH_LIMITATIONS
+limitations:
+  - Secondary catalog, not environment-specific.

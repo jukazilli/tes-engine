@@ -1,0 +1,15 @@
+recordType: claim
+id: claim-nfe-schema-authority
+statement: Official NF-e XML schema packages are primary normative sources for structural validation of NF-e model 55 XML version 4.00.
+domains: [NFE]
+scope:
+  kind: COUNTRY
+  country: BR
+sourceIds: [src-nfe-portal-schemas]
+evidenceIds: [ev-nfe-schema-portal]
+status: VERIFIED
+effectiveFrom: 2026-06-26
+limitations:
+  - Semantic tax interpretation still requires official notes, manuals and legislation.
+reviewer: Codex
+reviewedAt: 2026-06-26

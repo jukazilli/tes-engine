@@ -1,0 +1,10 @@
+recordType: evidence
+id: ev-example-001
+sourceId: src-example-001
+questionId: rq-example-001
+kind: OFFICIAL_PAGE
+locator: Section or stable URL fragment
+observedAt: 2026-06-26T00:00:00Z
+summary: Short paraphrase only.
+status: UNDER_REVIEW
+limitations: []

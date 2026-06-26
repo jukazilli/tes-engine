@@ -1,0 +1,11 @@
+recordType: evidence
+id: ev-mile-layout-fields
+sourceId: src-totvs-mile-tdn
+questionId: rq-mile-layout-fields
+kind: OFFICIAL_PAGE
+locator: TDN page sections "O que e o MILE", "O que e um Layout" and "Campos"
+observedAt: 2026-06-26T00:00:00Z
+summary: MILE maps text-file data through layouts, channels and adapters; when supported, field selection is related to SX3 or the MVC model.
+status: VERIFIED
+limitations:
+  - This evidence defines import layout behavior, not a TES/SF4 fiscal rule.

@@ -1,0 +1,10 @@
+recordType: question
+id: rq-sf4-secondary-catalog
+question: Como classificar o catalogo publico da SF4 da SempreJU?
+domains: [PROTHEUS_SF4]
+askedBy: Prompt 11.5A
+askedAt: 2026-06-26
+status: VERIFIED_WITH_LIMITATIONS
+requiredAuthority: [SECONDARY_TECHNICAL]
+acceptedSourceIds: [src-sempreju-sf4, src-environment-sx3-snapshot-policy]
+notes: The catalog is useful for discovery but not definitive.

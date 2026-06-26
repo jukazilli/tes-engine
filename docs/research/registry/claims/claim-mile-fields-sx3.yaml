@@ -1,0 +1,15 @@
+recordType: claim
+id: claim-mile-fields-sx3
+statement: MILE importability is governed by a configured layout and adapter, with field availability tied to SX3 or the MVC model depending on adapter mode.
+domains: [PROTHEUS_MILE, PROTHEUS_SX3]
+scope:
+  kind: RELEASE
+  release: Protheus 12
+sourceIds: [src-totvs-mile-tdn, src-totvs-mile-kb]
+evidenceIds: [ev-mile-layout-fields]
+status: VERIFIED_WITH_LIMITATIONS
+effectiveFrom: 2026-06-26
+limitations:
+  - The claim is release-scoped to Protheus documentation available on the access date and does not enumerate each routine.
+reviewer: Codex
+reviewedAt: 2026-06-26

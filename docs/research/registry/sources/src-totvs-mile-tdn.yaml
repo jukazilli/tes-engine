@@ -1,0 +1,13 @@
+recordType: source
+id: src-totvs-mile-tdn
+title: MILE - Model Integrator Layout Engine
+kind: OFFICIAL_VENDOR_DOCUMENTATION
+authorityLevel: PRIMARY_VENDOR
+domains: [PROTHEUS_MILE, PROTHEUS_SX3]
+url: https://tdn.totvs.com/display/public/framework/MILE+-+Model+Integrator+Layout+Engine
+publisher: TOTVS TDN
+version: last modified 2025-09-18
+accessedAt: 2026-06-26
+status: VERIFIED
+copyrightPolicy: SUMMARY_ONLY
+notes: Official vendor documentation for MILE concepts, layout composition, adapters and field lookup behavior.

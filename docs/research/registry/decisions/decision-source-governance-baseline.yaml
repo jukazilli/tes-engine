@@ -1,0 +1,17 @@
+recordType: decision
+id: decision-source-governance-baseline
+title: Establish research-before-rules governance
+status: ACCEPTED
+decidedBy: Prompt 11.5A
+decidedAt: 2026-06-26
+acceptedClaimIds:
+  - claim-mile-fields-sx3
+  - claim-sf4-sempreju-secondary
+  - claim-sx3-environment-prevails
+  - claim-configtrib-tes-relationship
+  - claim-nfe-schema-authority
+conflictIds: [conflict-sf4-catalog-vs-sx3]
+consequences:
+  - Future rule implementation must reference accepted research claims.
+  - Secondary catalogs can guide discovery but cannot become normative rules.
+  - Environment snapshots and official sources define authoritative fiscal and Protheus metadata.

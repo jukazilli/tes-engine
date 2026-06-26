@@ -1,0 +1,10 @@
+recordType: question
+id: rq-configtrib-tes
+question: Qual a relacao entre TES, TES Inteligente, Tipo de Operacao e Configurador de Tributos?
+domains: [CONFIGTRIB, PROTHEUS_SF4]
+askedBy: Prompt 11.5A
+askedAt: 2026-06-26
+status: VERIFIED
+requiredAuthority: [PRIMARY_VENDOR]
+acceptedSourceIds: [src-totvs-configtrib-tes]
+notes: Research question required by Prompt 11.5A.

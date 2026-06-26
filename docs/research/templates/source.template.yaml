@@ -1,0 +1,13 @@
+recordType: source
+id: src-example-001
+title: Example source
+kind: OFFICIAL_VENDOR_DOCUMENTATION
+authorityLevel: PRIMARY_VENDOR
+domains: [PROTHEUS_MILE]
+url: https://example.com
+publisher: Example publisher
+version: optional
+accessedAt: 2026-06-26
+status: UNDER_REVIEW
+copyrightPolicy: SUMMARY_ONLY
+notes: Keep summaries and locators only.

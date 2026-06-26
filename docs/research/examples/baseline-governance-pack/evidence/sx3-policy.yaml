@@ -1,0 +1,11 @@
+recordType: evidence
+id: ex-ev-sx3-policy
+sourceId: ex-src-sx3-policy
+questionId: ex-rq-sf4-authority
+kind: INTERNAL_DOCUMENT
+locator: Example authority statement
+observedAt: 2026-06-26T00:00:00Z
+summary: Environment-specific SX3 must be treated as the authority for effective field metadata.
+status: UNDER_REVIEW
+limitations:
+  - Example only; SX3 ingestion is out of scope.

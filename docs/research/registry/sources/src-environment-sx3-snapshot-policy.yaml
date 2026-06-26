@@ -1,0 +1,11 @@
+recordType: source
+id: src-environment-sx3-snapshot-policy
+title: Future tenant environment SX3 snapshot
+kind: PROJECT_ARCHITECTURE
+authorityLevel: ENVIRONMENT_SNAPSHOT
+domains: [PROTHEUS_SX3]
+publisher: TES Engine
+accessedAt: 2026-06-26
+status: UNDER_REVIEW
+copyrightPolicy: INTERNAL_REFERENCE_ONLY
+notes: Placeholder authority class for future collected SX3 snapshots from a tenant Protheus environment.

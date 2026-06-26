@@ -1,0 +1,15 @@
+recordType: claim
+id: claim-sx3-environment-prevails
+statement: For field type, size, domain and validation, a confirmed SX3 snapshot from the tenant environment must prevail over generic public catalogs.
+domains: [PROTHEUS_SX3]
+scope:
+  kind: TENANT_ENVIRONMENT
+  tenantEnvironmentId: future-confirmed-sx3-snapshot
+sourceIds: [src-environment-sx3-snapshot-policy, src-totvs-mile-tdn, src-tes-internal-tax-context]
+evidenceIds: [ev-sx3-environment-authority, ev-mile-layout-fields]
+status: VERIFIED_WITH_LIMITATIONS
+effectiveFrom: 2026-06-26
+limitations:
+  - Governance-only claim; Prompt 11.5A does not collect or persist SX3 snapshots.
+reviewer: Codex
+reviewedAt: 2026-06-26

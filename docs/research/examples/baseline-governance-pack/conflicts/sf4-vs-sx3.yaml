@@ -1,0 +1,8 @@
+recordType: conflict
+id: ex-conflict-sf4-vs-sx3
+claimIds: [ex-claim-sempreju-secondary, ex-claim-sx3-prevails]
+summary: Catalog discovery and environment authority have different authority levels.
+resolutionStatus: RESOLVED_BY_ENVIRONMENT
+resolution: Use SempreJU only as a locator and require future confirmed SX3 for definitive field contracts.
+decidedBy: TES Engine example
+decidedAt: 2026-06-26

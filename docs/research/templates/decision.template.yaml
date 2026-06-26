@@ -1,0 +1,10 @@
+recordType: decision
+id: decision-example-001
+title: Example research decision
+status: PROPOSED
+decidedBy: TES Engine
+decidedAt: 2026-06-26
+acceptedClaimIds: [claim-example-001]
+conflictIds: []
+consequences:
+  - Document-only consequence until implementation prompt accepts it.

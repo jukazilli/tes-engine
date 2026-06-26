@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tes-engine.local/research/decision.schema.json",
+  "title": "ResearchDecisionRecord",
+  "type": "object",
+  "required": [
+    "recordType",
+    "id",
+    "title",
+    "status",
+    "decidedBy",
+    "decidedAt",
+    "acceptedClaimIds",
+    "consequences"
+  ],
+  "properties": {
+    "recordType": { "const": "decision" },
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "status": { "enum": ["PROPOSED", "ACCEPTED", "REJECTED", "SUPERSEDED"] },
+    "decidedBy": { "type": "string" },
+    "decidedAt": { "type": "string" },
+    "acceptedClaimIds": { "type": "array", "items": { "type": "string" } },
+    "rejectedClaimIds": { "type": "array", "items": { "type": "string" } },
+    "conflictIds": { "type": "array", "items": { "type": "string" } },
+    "consequences": { "type": "array", "items": { "type": "string" } }
+  }
+}

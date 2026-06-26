@@ -1,0 +1,13 @@
+recordType: claim
+id: ex-claim-sempreju-secondary
+statement: SempreJU SF4 can support discovery but cannot define definitive TES field contracts.
+domains: [PROTHEUS_SF4]
+scope:
+  kind: GLOBAL
+sourceIds: [ex-src-sempreju-sf4]
+evidenceIds: [ex-ev-sempreju-locator]
+status: VERIFIED_WITH_LIMITATIONS
+limitations:
+  - Secondary technical catalog only.
+reviewer: TES Engine example
+reviewedAt: 2026-06-26

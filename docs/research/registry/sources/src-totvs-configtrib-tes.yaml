@@ -1,0 +1,13 @@
+recordType: source
+id: src-totvs-configtrib-tes
+title: FISA170 - TES Inteligente and Configurador de Tributos
+kind: VENDOR_KNOWLEDGE_BASE
+authorityLevel: PRIMARY_VENDOR
+domains: [CONFIGTRIB, PROTHEUS_SF4]
+url: https://centraldeatendimento.totvs.com/hc/pt-br/articles/35554255260439-CROSS-Segmentos-TOTVS-Backoffice-Linha-Protheus-FIS-FISA170-A-TES-Inteligente-ir%C3%A1-permanecer-com-a-implanta%C3%A7%C3%A3o-do-Configurador-de-Tributos
+publisher: TOTVS Central de Atendimento
+version: 2025-10-10
+accessedAt: 2026-06-26
+status: VERIFIED
+copyrightPolicy: SUMMARY_ONLY
+notes: Official vendor support article about TES Inteligente and Configurador de Tributos relationship.

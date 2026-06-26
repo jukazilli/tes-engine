@@ -1,0 +1,14 @@
+recordType: claim
+id: claim-sf4-sempreju-secondary
+statement: The SempreJU SF4 page is a secondary technical catalog useful for discovery, not a definitive authority for tenant field metadata or fiscal behavior.
+domains: [PROTHEUS_SF4]
+scope:
+  kind: GLOBAL
+sourceIds: [src-sempreju-sf4]
+evidenceIds: [ev-sempreju-sf4-catalog]
+status: VERIFIED_WITH_LIMITATIONS
+effectiveFrom: 2026-06-26
+limitations:
+  - Secondary technical source only; official vendor documentation and confirmed environment data prevail.
+reviewer: Codex
+reviewedAt: 2026-06-26

@@ -1,0 +1,12 @@
+recordType: source
+id: src-tes-internal-tax-context
+title: TES Engine tax context and confirmed snapshots architecture
+kind: PROJECT_ARCHITECTURE
+authorityLevel: INTERNAL_DECISION
+domains: [PROTHEUS_SX3, CONFIGTRIB, RESEARCH_GOVERNANCE]
+publisher: TES Engine
+url: https://github.com/local/tes-engine/blob/main/docs/architecture/tax-context-resolution.md
+accessedAt: 2026-06-26
+status: VERIFIED
+copyrightPolicy: INTERNAL_REFERENCE_ONLY
+notes: Internal architecture states that runtime fiscal context must be explicit and confirmed before use.

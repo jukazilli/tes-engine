@@ -14,6 +14,7 @@ produto, dominio, governanca, execucao dos prompts e contribuicoes.
 | `domain/`       | Linguagem ubiqua, regras e decisoes pendentes            | Dominio         |
 | `development/`  | Guias de desenvolvimento, qualidade e comandos locais    | Desenvolvimento |
 | `governance/`   | Fonte de verdade, padroes e mudancas                     | Governanca      |
+| `research/`     | Fontes, evidencias, claims e decisoes de pesquisa        | Evidencia       |
 | `adr/`          | Architectural Decision Records aceitos                   | Decisoes        |
 | `templates/`    | Modelos para novos documentos                            | Processo        |
 | `roadmap/`      | Fases e sequencia de prompts                             | Planejamento    |
@@ -30,18 +31,19 @@ produto, dominio, governanca, execucao dos prompts e contribuicoes.
 7. [Linguagem ubiqua](domain/ubiquitous-language.md)
 8. [Registro de regras de negocio](domain/business-rules-register.md)
 9. [Indice de ADRs](adr/README.md)
-10. [Fundacao da API](architecture/api-foundation.md)
-11. [Typechecking](development/typechecking.md)
-12. [Relatorios de execucao](execution/README.md)
+10. [Governanca de pesquisa](research/source-governance.md)
+11. [Fundacao da API](architecture/api-foundation.md)
+12. [Typechecking](development/typechecking.md)
+13. [Relatorios de execucao](execution/README.md)
 
 ## Status atual
 
-Ultima etapa concluida: Prompt 06, fundacao tecnica da API NestJS.
+Ultima etapa concluida: Prompt 11.5A, governanca de pesquisa, fontes e evidencias.
 
-Etapa atual: API preparada para modulos de negocio futuros.
+Etapa atual: estrategias tributarias e governanca de pesquisa documentadas para proximas regras.
 
-Proxima etapa prevista: Prompt 07, a ser definido pela sequencia de prompts sem antecipar ORM,
-autenticacao, banco da aplicacao ou funcionalidades fiscais fora do escopo.
+Proxima etapa prevista: seguir a sequencia de prompts sem antecipar SX3, SF4, MILE, XML fiscal ou UI
+completa fora do escopo aprovado.
 
 ## Arquitetura resumida
 

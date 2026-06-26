@@ -1,0 +1,10 @@
+recordType: question
+id: rq-example-001
+question: What needs to be established?
+domains: [RESEARCH_GOVERNANCE]
+askedBy: TES Engine
+askedAt: 2026-06-26
+status: UNDER_REVIEW
+requiredAuthority: [PRIMARY_NORMATIVE]
+acceptedSourceIds: []
+notes: State the decision that the research must support.

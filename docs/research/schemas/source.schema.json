@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tes-engine.local/research/source.schema.json",
+  "title": "ResearchSourceRecord",
+  "type": "object",
+  "required": [
+    "recordType",
+    "id",
+    "title",
+    "kind",
+    "authorityLevel",
+    "domains",
+    "publisher",
+    "accessedAt",
+    "status"
+  ],
+  "properties": {
+    "recordType": { "const": "source" },
+    "id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string" },
+    "kind": {
+      "enum": [
+        "OFFICIAL_LEGISLATION",
+        "OFFICIAL_SCHEMA",
+        "OFFICIAL_VENDOR_DOCUMENTATION",
+        "VENDOR_KNOWLEDGE_BASE",
+        "PROJECT_ARCHITECTURE",
+        "THIRD_PARTY_TECHNICAL_CATALOG",
+        "SYNTHETIC_EVIDENCE"
+      ]
+    },
+    "authorityLevel": {
+      "enum": [
+        "PRIMARY_NORMATIVE",
+        "PRIMARY_VENDOR",
+        "ENVIRONMENT_SNAPSHOT",
+        "INTERNAL_DECISION",
+        "SECONDARY_TECHNICAL",
+        "COMMUNITY_REFERENCE"
+      ]
+    },
+    "domains": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "url": { "type": "string" },
+    "publisher": { "type": "string" },
+    "version": { "type": "string" },
+    "accessedAt": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "effectiveFrom": { "type": "string" },
+    "effectiveUntil": { "type": "string" },
+    "status": { "type": "string" },
+    "copyrightPolicy": {
+      "enum": ["SUMMARY_ONLY", "SHORT_EXCERPTS_ALLOWED", "INTERNAL_REFERENCE_ONLY"]
+    },
+    "notes": { "type": "string" }
+  }
+}

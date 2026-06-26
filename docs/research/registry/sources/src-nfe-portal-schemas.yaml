@@ -1,0 +1,13 @@
+recordType: source
+id: src-nfe-portal-schemas
+title: Esquemas XML NF-e/NFC-e
+kind: OFFICIAL_SCHEMA
+authorityLevel: PRIMARY_NORMATIVE
+domains: [NFE]
+url: https://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=BMPFMBoln3w%3D
+publisher: Portal Nacional da Nota Fiscal Eletronica
+version: NF-e/NFC-e XML schemas
+accessedAt: 2026-06-26
+status: VERIFIED
+copyrightPolicy: SUMMARY_ONLY
+notes: Official source for XML schema packages and technical structure of NF-e/NFC-e messages.

@@ -1,0 +1,12 @@
+recordType: evidence
+id: ev-sempreju-sf4-catalog
+sourceId: src-sempreju-sf4
+questionId: rq-sf4-secondary-catalog
+kind: TECHNICAL_CATALOG_LOCATOR
+locator: SempreJU SF4 table page title and field list
+observedAt: 2026-06-26T00:00:00Z
+summary: The page exposes an SF4 technical catalog with field names and labels, useful for discovery and comparison.
+status: VERIFIED_WITH_LIMITATIONS
+limitations:
+  - Third-party catalogs can lag or differ from a tenant environment dictionary.
+  - Do not copy the catalog content into TES Engine.

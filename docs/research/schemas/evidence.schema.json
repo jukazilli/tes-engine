@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tes-engine.local/research/evidence.schema.json",
+  "title": "ResearchEvidenceRecord",
+  "type": "object",
+  "required": [
+    "recordType",
+    "id",
+    "sourceId",
+    "questionId",
+    "kind",
+    "locator",
+    "observedAt",
+    "summary",
+    "status"
+  ],
+  "properties": {
+    "recordType": { "const": "evidence" },
+    "id": { "type": "string" },
+    "sourceId": { "type": "string" },
+    "questionId": { "type": "string" },
+    "kind": { "type": "string" },
+    "locator": { "type": "string" },
+    "observedAt": { "type": "string" },
+    "summary": { "type": "string" },
+    "status": { "type": "string" },
+    "limitations": { "type": "array", "items": { "type": "string" } }
+  }
+}

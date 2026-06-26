@@ -1,0 +1,11 @@
+recordType: question
+id: rq-sx3-authority
+question: Por que snapshot SX3 do ambiente prevalece sobre catalogos genericos para tipo, tamanho, dominio e validacao?
+domains: [PROTHEUS_SX3]
+askedBy: Prompt 11.5A
+askedAt: 2026-06-26
+status: VERIFIED_WITH_LIMITATIONS
+requiredAuthority: [ENVIRONMENT_SNAPSHOT, PRIMARY_VENDOR]
+acceptedSourceIds:
+  [src-totvs-mile-tdn, src-environment-sx3-snapshot-policy, src-tes-internal-tax-context]
+notes: Environment snapshot is the future authority class; Prompt 11.5A only defines governance.

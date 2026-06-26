@@ -1,0 +1,11 @@
+recordType: evidence
+id: ev-sx3-environment-authority
+sourceId: src-environment-sx3-snapshot-policy
+questionId: rq-sx3-authority
+kind: INTERNAL_DOCUMENT
+locator: Authority policy placeholder for future tenant environment SX3 snapshots
+observedAt: 2026-06-26T00:00:00Z
+summary: The governing class for field type, size, domain and validation must be the confirmed SX3 snapshot from the target environment.
+status: UNDER_REVIEW
+limitations:
+  - Prompt 11.5A creates the governance class only; it does not implement SX3 ingestion.

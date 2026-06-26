@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tes-engine.local/research/claim.schema.json",
+  "title": "ResearchClaimRecord",
+  "type": "object",
+  "required": [
+    "recordType",
+    "id",
+    "statement",
+    "domains",
+    "scope",
+    "sourceIds",
+    "evidenceIds",
+    "status"
+  ],
+  "properties": {
+    "recordType": { "const": "claim" },
+    "id": { "type": "string" },
+    "statement": { "type": "string" },
+    "domains": { "type": "array", "items": { "type": "string" } },
+    "scope": {
+      "type": "object",
+      "required": ["kind"],
+      "properties": {
+        "kind": { "enum": ["GLOBAL", "COUNTRY", "STATE", "RELEASE", "TENANT_ENVIRONMENT"] },
+        "country": { "type": "string" },
+        "state": { "type": "string" },
+        "release": { "type": "string" },
+        "tenantEnvironmentId": { "type": "string" }
+      }
+    },
+    "sourceIds": { "type": "array", "items": { "type": "string" } },
+    "evidenceIds": { "type": "array", "items": { "type": "string" } },
+    "status": { "type": "string" },
+    "effectiveFrom": { "type": "string" },
+    "effectiveUntil": { "type": "string" },
+    "limitations": { "type": "array", "items": { "type": "string" } },
+    "reviewer": { "type": "string" },
+    "reviewedAt": { "type": "string" },
+    "supersedes": { "type": "array", "items": { "type": "string" } }
+  }
+}

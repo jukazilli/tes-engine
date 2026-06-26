@@ -1,0 +1,12 @@
+recordType: source
+id: src-sempreju-sf4
+title: Tabela SF4 - Tipos de Entrada e Saida
+kind: THIRD_PARTY_TECHNICAL_CATALOG
+authorityLevel: SECONDARY_TECHNICAL
+domains: [PROTHEUS_SF4]
+url: https://sempreju.com.br/tabelas_protheus/tabelas/tabela_sf4.html
+publisher: SempreJU
+accessedAt: 2026-06-26
+status: VERIFIED_WITH_LIMITATIONS
+copyrightPolicy: SUMMARY_ONLY
+notes: Auxiliary catalog only. It must not override the tenant environment SX3 dictionary or official TOTVS documentation.

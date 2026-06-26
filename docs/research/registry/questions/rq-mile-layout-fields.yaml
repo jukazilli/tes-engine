@@ -1,0 +1,10 @@
+recordType: question
+id: rq-mile-layout-fields
+question: Como o MILE recebe layouts e quais fontes determinam os campos importaveis?
+domains: [PROTHEUS_MILE, PROTHEUS_SX3]
+askedBy: Prompt 11.5A
+askedAt: 2026-06-26
+status: VERIFIED
+requiredAuthority: [PRIMARY_VENDOR]
+acceptedSourceIds: [src-totvs-mile-tdn, src-totvs-mile-kb]
+notes: Research question required by Prompt 11.5A.

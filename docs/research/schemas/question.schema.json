@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tes-engine.local/research/question.schema.json",
+  "title": "ResearchQuestionRecord",
+  "type": "object",
+  "required": [
+    "recordType",
+    "id",
+    "question",
+    "domains",
+    "askedBy",
+    "askedAt",
+    "status",
+    "requiredAuthority",
+    "acceptedSourceIds"
+  ],
+  "properties": {
+    "recordType": { "const": "question" },
+    "id": { "type": "string" },
+    "question": { "type": "string" },
+    "domains": { "type": "array", "items": { "type": "string" } },
+    "askedBy": { "type": "string" },
+    "askedAt": { "type": "string" },
+    "status": { "type": "string" },
+    "requiredAuthority": { "type": "array", "items": { "type": "string" } },
+    "acceptedSourceIds": { "type": "array", "items": { "type": "string" } },
+    "notes": { "type": "string" }
+  }
+}

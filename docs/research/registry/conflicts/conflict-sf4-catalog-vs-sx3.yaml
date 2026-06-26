@@ -1,0 +1,8 @@
+recordType: conflict
+id: conflict-sf4-catalog-vs-sx3
+claimIds: [claim-sf4-sempreju-secondary, claim-sx3-environment-prevails]
+summary: A public SF4 catalog can help locate fields, but tenant-specific SX3 metadata must prevail when the two differ.
+resolutionStatus: RESOLVED_BY_ENVIRONMENT
+resolution: Treat SempreJU as secondary discovery evidence and require confirmed environment SX3 before implementing definitive field contracts.
+decidedBy: Prompt 11.5A
+decidedAt: 2026-06-26

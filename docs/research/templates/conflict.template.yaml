@@ -1,0 +1,6 @@
+recordType: conflict
+id: conflict-example-001
+claimIds: [claim-example-001, claim-example-002]
+summary: Why the claims differ.
+resolutionStatus: OPEN
+resolution: Pending reviewer decision.

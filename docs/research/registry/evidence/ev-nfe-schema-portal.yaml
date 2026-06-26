@@ -1,0 +1,11 @@
+recordType: evidence
+id: ev-nfe-schema-portal
+sourceId: src-nfe-portal-schemas
+questionId: rq-nfe-schema-authority
+kind: OFFICIAL_SCHEMA
+locator: Portal Nacional NF-e XML schema package listing
+observedAt: 2026-06-26T00:00:00Z
+summary: The official NF-e portal publishes XML schema packages used to validate NF-e/NFC-e message structure.
+status: VERIFIED
+limitations:
+  - Schema packages define XML structure; business rule notes and legislation may be needed for semantic rules.

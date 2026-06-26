@@ -1,0 +1,11 @@
+recordType: decision
+id: ex-decision-sf4-governance
+title: Keep SF4 catalog evidence secondary
+status: ACCEPTED
+decidedBy: TES Engine example
+decidedAt: 2026-06-26
+acceptedClaimIds: [ex-claim-sempreju-secondary, ex-claim-sx3-prevails]
+conflictIds: [ex-conflict-sf4-vs-sx3]
+consequences:
+  - Do not implement definitive field contracts from SempreJU alone.
+  - Require SX3 ingestion prompt before tenant-specific field authority.

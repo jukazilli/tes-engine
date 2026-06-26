@@ -1,0 +1,10 @@
+recordType: question
+id: ex-rq-sf4-authority
+question: Um catalogo publico SF4 pode definir contrato definitivo de campo TES?
+domains: [PROTHEUS_SF4, PROTHEUS_SX3]
+askedBy: TES Engine example
+askedAt: 2026-06-26
+status: VERIFIED_WITH_LIMITATIONS
+requiredAuthority: [ENVIRONMENT_SNAPSHOT, PRIMARY_VENDOR]
+acceptedSourceIds: [ex-src-sempreju-sf4, ex-src-sx3-policy]
+notes: Example pack only.
